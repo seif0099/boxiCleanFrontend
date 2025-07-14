@@ -1,0 +1,282 @@
+/* User Management Container */
+.user-mgmt-wrapper {
+  background: #f9fbff;
+  min-height: 100vh;
+  padding: 3rem 1.8rem;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+.user-mgmt-container {
+  width: 100%;
+  max-width: 1060px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 3rem 3.5rem;
+  box-shadow:
+    0 24px 48px rgba(31, 41, 55, 0.08),
+    inset 0 0 24px rgba(255, 255, 255, 0.95);
+  transition: box-shadow 0.35s ease;
+}
+
+.user-mgmt-container:hover {
+  box-shadow:
+    0 36px 68px rgba(31, 41, 55, 0.12),
+    inset 0 0 32px rgba(255, 255, 255, 1);
+}
+
+/* Title */
+.user-mgmt-title {
+  font-weight: 800;
+  font-size: 2.6rem;
+  color: #334155;
+  margin-bottom: 2.8rem;
+  text-align: center;
+  letter-spacing: 0.04em;
+  user-select: text;
+  text-shadow: 0 3px 10px rgb(51 65 85 / 0.08);
+}
+
+/* Filter Section */
+.user-mgmt-filter {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  user-select: none;
+  flex-wrap: wrap;
+}
+
+.user-mgmt-filter label {
+  font-weight: 700;
+  color: #475569;
+  font-size: 1.1rem;
+  user-select: text;
+  min-width: max-content;
+}
+
+/* Role Filter Select */
+#role-filter {
+  padding: 0.6rem 1.1rem;
+  font-size: 1.05rem;
+  border-radius: 18px;
+  border: 2px solid #a5b4fc;
+  background-color: #f0f5ff;
+  color: #1e293b;
+  cursor: pointer;
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.06);
+  min-width: 210px;
+  font-weight: 600;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#role-filter:hover {
+  background-color: #dde9ff;
+}
+
+#role-filter:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #e6f0ff;
+  box-shadow:
+    0 0 14px 4px rgba(37, 99, 235, 0.48),
+    inset 0 1px 7px rgba(37, 99, 235, 0.25);
+}
+
+/* Loading and Empty Messages */
+.user-mgmt-loading,
+.user-mgmt-empty {
+  margin-top: 3rem;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #64748b;
+  text-align: center;
+  user-select: text;
+}
+
+/* Users Table */
+.user-mgmt-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  font-size: 1rem;
+  color: #334155;
+  user-select: text;
+  border-radius: 20px;
+  box-shadow: 0 5px 18px rgba(56, 58, 100, 0.1);
+  background: #fefeffee;
+  overflow: hidden;
+}
+
+/* Table Head */
+.user-mgmt-table thead tr {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: #f0f5ff;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  user-select: none;
+  box-shadow:
+    inset 0 -6px 10px rgba(0, 0, 0, 0.14);
+}
+
+.user-mgmt-table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  border: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Table Body Rows */
+.user-mgmt-table tbody tr {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow:
+    0 6px 22px rgba(37, 99, 235, 0.06);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.user-mgmt-table tbody tr:hover {
+  background-color: #e7f0ff;
+  box-shadow:
+    0 10px 32px rgba(37, 99, 235, 0.18);
+  cursor: default;
+}
+
+.user-mgmt-table tbody td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  color: #475569;
+  user-select: text;
+}
+
+/* ID and Role emphasized */
+.user-mgmt-table tbody td:nth-child(1),
+.user-mgmt-table tbody td:nth-child(4) {
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+/* Actions Cell */
+.user-mgmt-table tbody td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Delete Button */
+.user-mgmt-delete-btn {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #faeaea;
+  border: none;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  border-radius: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.6);
+  user-select: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.user-mgmt-delete-btn:hover,
+.user-mgmt-delete-btn:focus {
+  background: linear-gradient(135deg, #b91c1c, #7f1313);
+  box-shadow: 0 6px 22px rgba(185, 28, 28, 0.8);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.user-mgmt-delete-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 12px rgba(185, 28, 28, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .user-mgmt-container {
+    padding: 2rem 2rem;
+  }
+  .user-mgmt-filter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #role-filter {
+    width: 100%;
+    min-width: auto;
+  }
+  .user-mgmt-delete-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+  .user-mgmt-table thead {
+    display: none;
+  }
+  .user-mgmt-table tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background: #fefeff;
+    box-shadow: 0 4px 18px rgba(37, 99, 235, 0.1);
+    border-radius: 20px;
+  }
+  .user-mgmt-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #e0e7ff;
+    white-space: nowrap;
+  }
+  .user-mgmt-table tbody td:last-child {
+    border-bottom: none;
+  }
+  .user-mgmt-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #2563eb;
+    flex: 1;
+    white-space: nowrap;
+  }
+}
+.user-mgmt-pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.pagination-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.pagination-btn.active {
+  background-color: #1e3a8a;
+  color: white;
+  border-color: #1e3a8a;
+}

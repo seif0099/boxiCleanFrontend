@@ -1,0 +1,315 @@
+/* Redesigned Activities Section - Fresh & Elegant */
+
+.activities-container {
+  padding: 3rem 2.5rem;
+  max-width: 1100px;
+  margin: 3rem auto;
+  background: #f9fbff;
+  border-radius: 24px;
+  box-shadow:
+    0 20px 40px rgba(7, 30, 80, 0.06),
+    inset 0 0 25px rgba(255, 255, 255, 0.95);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  user-select: none;
+  transition: box-shadow 0.4s ease;
+}
+
+.activities-container:hover {
+  box-shadow:
+    0 28px 56px rgba(7, 30, 80, 0.12),
+    inset 0 0 30px rgba(255, 255, 255, 1);
+}
+
+/* Section Title */
+.activities-container h2 {
+  margin-bottom: 2.5rem;
+  color: #334155;
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  user-select: text;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 24px;
+  padding: 1.2rem 1.6rem;
+  background-color: #fefefe;
+  border-radius: 16px;
+  border: 1.5px solid #c0c9d5;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.filter-section:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.filter-section label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #475569;
+  user-select: text;
+  min-width: max-content;
+}
+
+/* Dropdown styling */
+.payment-filter {
+  padding: 0.65rem 1.2rem;
+  border-radius: 18px;
+  border: 2px solid #a6b0c3;
+  background-color: #f7faff;
+  font-size: 1rem;
+  color: #3b475a;
+  min-width: 240px;
+  cursor: pointer;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.06);
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+  user-select: none;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.payment-filter:hover {
+  background-color: #e9f0ff;
+}
+
+.payment-filter:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #fff;
+  box-shadow:
+    0 0 10px 4px rgba(37, 99, 235, 0.5),
+    inset 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+/* Filter count info */
+.filter-count {
+  color: #64748b;
+  font-size: 14.5px;
+  font-style: italic;
+  user-select: text;
+  flex-grow: 1;
+  text-align: right;
+  min-width: max-content;
+  font-weight: 500;
+}
+
+/* Activities Table */
+.activities-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 18px;
+  margin-top: 2.2rem;
+  box-shadow:
+    0 5px 18px rgba(50, 57, 102, 0.09);
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 1.05rem;
+  background: #ffffffee;
+  user-select: text;
+  color: #334155;
+}
+
+/* Table Header */
+.activities-table thead tr {
+  background: linear-gradient(90deg, #2e4acc, #2461d4);
+  color: #fefefe;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 13.5px;
+  letter-spacing: 0.12em;
+  user-select: none;
+  box-shadow:
+    inset 0 -6px 8px rgba(0, 0, 0, 0.14);
+}
+
+.activities-table thead th {
+  padding: 16px 18px;
+  text-align: left;
+  border: none;
+}
+
+/* Table Body Rows */
+.activities-table tbody tr {
+  background: #fafcfe;
+  border-radius: 18px;
+  box-shadow:
+    0 4px 14px rgba(36, 81, 181, 0.06);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  cursor: default;
+}
+
+.activities-table tbody tr:hover {
+  background-color: #e7efff;
+  box-shadow:
+    0 8px 26px rgba(36, 81, 181, 0.15);
+}
+
+.activities-table tbody td {
+  padding: 16px 18px;
+  border-bottom: none;
+  color: #475569;
+  vertical-align: middle;
+  user-select: text;
+}
+
+/* Emphasize first column */
+.activities-table tbody td:first-child {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Last row style */
+.activities-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status badges */
+.statut {
+  display: inline-block;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 24px;
+  text-transform: uppercase;
+  box-shadow:
+    0 2.5px 8px rgb(0 0 0 / 0.12);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+  min-width: 90px;
+  text-align: center;
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Status colors */
+.statut.terminee,
+.statut.terminé,
+.statut.termine {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  color: #e9f7ef;
+  box-shadow:
+    0 5px 18px rgba(39, 174, 96, 0.6),
+    inset 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+.statut.annulee,
+.statut.annulé,
+.statut.annule {
+  background: linear-gradient(135deg, #e74c3c, #9b2c26);
+  color: #fcebea;
+  box-shadow:
+    0 5px 18px rgba(231, 76, 60, 0.55),
+    inset 0 0 16px rgba(255, 255, 255, 0.32);
+}
+
+.statut.en_attente,
+.statut.en_attente {
+  background: linear-gradient(135deg, #f4d03f, #a57d0e);
+  color: #fff9db;
+  box-shadow:
+    0 5px 18px rgba(244, 208, 63, 0.55),
+    inset 0 0 16px rgba(255, 255, 255, 0.3);
+}
+
+.statut.confirme,
+.statut.confirmé {
+  background: linear-gradient(135deg, #4ade80, #218838);
+  color: #e6ffed;
+  box-shadow:
+    0 5px 18px rgba(74, 222, 128, 0.7),
+    inset 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+/* No results message */
+.no-results {
+  margin-top: 4rem;
+  padding: 3.5rem 1rem;
+  font-style: italic;
+  color: #8492a6;
+  font-size: 1.15rem;
+  user-select: text;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  /* Stack filters vertically */
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.2rem;
+  }
+
+  /* Dropdown full width */
+  .payment-filter {
+    width: 100%;
+    min-width: auto;
+  }
+
+  /* Align count right and reduce font size */
+  .filter-count {
+    text-align: right;
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Compact table adjustments */
+  .activities-table {
+    font-size: 0.95rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(36, 81, 181, 0.1);
+  }
+
+  .activities-table thead tr {
+    font-size: 12px;
+  }
+
+  .activities-table thead th,
+  .activities-table tbody td {
+    padding: 12px 14px;
+  }
+}
+.activities-pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination-btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #f7fafc;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.pagination-btn.active {
+  background-color: #3182ce;
+  color: white;
+  border-color: #3182ce;
+}

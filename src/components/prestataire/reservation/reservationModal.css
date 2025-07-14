@@ -1,0 +1,182 @@
+/* Overlay with smooth dark translucent background and subtle blur */
+.cmd-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 23, 26, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  animation: fadeInOverlay 0.3s ease forwards;
+}
+
+/* Modal container with modern rounded corners and shadow */
+.cmd-modal {
+  background-color: #fafafa;
+  border-radius: 20px;
+  padding: 2.5rem 2.8rem;
+  width: 480px;
+  max-width: 90%;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.16),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  user-select: none;
+  animation: modalSlideIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+  overflow-wrap: break-word;
+}
+
+/* Full width elements inside modal */
+.cmd-full-width {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: #4b5563;
+  user-select: text;
+}
+
+/* Status badge with subtle lucid background and bold text */
+.cmd-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  background-color: #e5e7eb;
+  color: #374151;
+  user-select: none;
+  display: inline-block;
+  box-shadow:
+    inset 0 0 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Example status color modifiers */
+.cmd-status.confirmed {
+  background-color: #d1fae5;
+  color: #065f46;
+  box-shadow: none;
+}
+
+.cmd-status.pending {
+  background-color: #fef3c7;
+  color: #b45309;
+  box-shadow: none;
+}
+
+.cmd-status.cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+  box-shadow: none;
+}
+
+/* Modal footer aligned buttons */
+.cmd-modal-footer {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Cancel button with modern styling and smooth hover */
+.cmd-cancel-btn {
+  background-color: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  min-width: 120px;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmd-cancel-btn:hover,
+.cmd-cancel-btn:focus {
+  background-color: #b91c1c;
+  box-shadow: 0 6px 20px rgba(185, 28, 28, 0.7);
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Animations */
+@keyframes modalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-48px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .cmd-modal {
+    padding: 1.8rem 2rem;
+    width: 95%;
+  }
+  .cmd-cancel-btn {
+    width: 100%;
+    padding: 14px 0;
+  }
+  .cmd-modal-footer {
+    justify-content: center;
+  }
+}
+/* Bouton "Marquer comme terminée" redesigné avec le même style que "Fermer" */
+.cmd-complete-btn {
+  background-color: #10b981;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  min-width: 120px;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmd-complete-btn:hover,
+.cmd-complete-btn:focus {
+  background-color: #059669;
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.7);
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Responsive adjustments pour le bouton complete */
+@media (max-width: 520px) {
+  .cmd-complete-btn {
+    width: 100%;
+    padding: 14px 0;
+  }
+}

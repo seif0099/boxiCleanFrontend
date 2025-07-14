@@ -1,0 +1,188 @@
+/* Modal Backdrop with smooth gradient and subtle blur */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(33, 37, 41, 0.85) 0%,
+    rgba(21, 24, 28, 0.75) 100%
+  );
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  animation: fadeInBackdrop 0.35s ease forwards;
+}
+
+/* Modal Container with glassmorphism vibes */
+.modal-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  width: 580px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222831;
+  user-select: none;
+  animation: modalSlideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Close Button - modern circular with hover */
+.close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: #eeeeee;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem 0.6rem;
+  width: 36px;
+  height: 36px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #555555;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  background: #dd3333;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(221, 51, 51, 0.6);
+}
+
+/* Avis List */
+.avis-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #b0b0b0 #f0f0f0;
+}
+
+/* Custom scrollbar for WebKit */
+.avis-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.avis-list::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 12px;
+}
+
+.avis-list::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 12px;
+  border: 2px solid #f0f0f0;
+}
+
+/* Avis Item with card style and subtle shadow */
+.avis-item {
+  padding: 1.2rem 1.6rem;
+  border-radius: 16px;
+  background: #f9fafb;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+  user-select: text;
+}
+
+.avis-item:last-child {
+  margin-bottom: 0;
+}
+
+.avis-item:hover {
+  background-color: #e6f0ff;
+}
+
+/* Avis Header layout */
+.avis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  user-select: text;
+}
+
+/* Note with star icon and gradient color */
+.note {
+  font-weight: 700;
+  color: #f1c40f;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.15rem;
+  gap: 0.3rem;
+  user-select: text;
+}
+
+/* Optional: add star icon via before */
+.note::before {
+  content: '★';
+  font-size: 1.3rem;
+  /* Gradient star */
+  background: linear-gradient(90deg, #f39c12, #f1c40f 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-right: 0.2rem;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .modal-container {
+    width: 90vw;
+    padding: 2rem 2.5rem;
+    border-radius: 18px;
+  }
+
+  .close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .avis-item {
+    padding: 1rem 1.3rem;
+  }
+}

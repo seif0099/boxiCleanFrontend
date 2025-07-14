@@ -1,0 +1,229 @@
+.fail-payment-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fce4e4, #f8a5a5);
+  padding: 25px;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.fail-payment-content {
+  background: #fff5f5;
+  padding: 42px 48px;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(231, 76, 60, 0.25);
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  color: #b63127;
+  transition: box-shadow 0.3s ease;
+}
+
+.fail-payment-content:hover,
+.fail-payment-content:focus-within {
+  box-shadow: 0 20px 60px rgba(231, 76, 60, 0.38);
+  outline: none;
+}
+
+.fail-payment-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 22px;
+  letter-spacing: 0.05em;
+  color: #c0392b;
+  user-select: text;
+}
+
+.fail-payment-content p {
+  color: #7f2a24;
+  font-size: 1.2rem;
+  margin-bottom: 38px;
+  line-height: 1.6;
+  user-select: text;
+}
+
+.payment-failure-details {
+  background: #ffe7e6;
+  padding: 24px 28px;
+  border-radius: 14px;
+  text-align: left;
+  margin-bottom: 36px;
+  color: #a83225;
+  box-shadow: inset 0 1px 6px rgba(195, 52, 43, 0.12);
+  user-select: text;
+}
+
+.payment-failure-details h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #c0392b;
+  letter-spacing: 0.04em;
+}
+
+.detail-item {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f4b4af;
+  user-select: text;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.failure-suggestions {
+  background: #fff1f0;
+  padding: 22px 26px;
+  border-radius: 14px;
+  margin-bottom: 38px;
+  text-align: left;
+  color: #922b21;
+  box-shadow: inset 0 1px 6px rgba(201, 66, 57, 0.12);
+  user-select: text;
+}
+
+.failure-suggestions h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #b8332d;
+  letter-spacing: 0.03em;
+}
+
+.failure-suggestions ul {
+  margin-left: 18px;
+  color: #b23026;
+  line-height: 1.5;
+}
+
+.failure-suggestions li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  min-width: 160px;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 22px rgba(195, 52, 43, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  box-shadow: 0 10px 28px rgba(231, 76, 60, 0.5);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: linear-gradient(45deg, #c0392b, #922b21);
+  box-shadow: 0 14px 36px rgba(176, 45, 35, 0.65);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #7e655a;
+  color: #f1e7e3;
+  box-shadow: 0 8px 22px rgba(126, 101, 90, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: #5f4a42;
+  box-shadow: 0 12px 36px rgba(95, 74, 66, 0.5);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #c0392b;
+  color: #c0392b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 8px 22px rgba(192, 57, 43, 0.3);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  background: #c0392b;
+  color: #fff;
+  box-shadow: 0 14px 36px rgba(192, 57, 43, 0.6);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .fail-payment-content {
+    padding: 30px 28px;
+  }
+
+  .fail-payment-content h1 {
+    font-size: 2.4rem;
+  }
+
+  .payment-failure-details,
+  .failure-suggestions {
+    padding: 18px 22px;
+  }
+
+  .failure-suggestions h3,
+  .payment-failure-details h3 {
+    font-size: 1.25rem;
+  }
+
+  .button-group {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fail-payment-page {
+    padding: 20px 16px;
+  }
+
+  .fail-payment-content {
+    padding: 28px 20px;
+  }
+
+  .fail-payment-content h1 {
+    font-size: 2rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 0;
+  }
+}

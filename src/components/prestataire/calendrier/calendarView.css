@@ -1,0 +1,91 @@
+/* 📅 Container styling */
+.calendar-container {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ This centers the calendar horizontally */
+  justify-content: flex-start;
+  text-align: center;
+}
+
+/* 📌 Section title */
+.calendar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 📆 Date display */
+.calendar-date {
+  font-weight: bold;
+  color: #1f2937;
+}
+
+/* 🗂️ Event list */
+.calendar-events {
+  margin-top: 2rem;
+}
+
+.calendar-event-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.calendar-event-item {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.2s ease;
+}
+
+.calendar-event-item:hover {
+  background-color: #e2e8f0;
+}
+
+/* ℹ️ Event text */
+.calendar-event-item p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.calendar-event-item strong {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* 🛑 Empty state */
+.calendar-empty {
+  font-style: italic;
+  color: #9ca3af;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fef2f2;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .calendar-container {
+    padding: 1rem;
+  }
+
+  .calendar-event-item {
+    padding: 0.75rem 1rem;
+  }
+}

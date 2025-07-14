@@ -1,0 +1,902 @@
+/* PrestataireDashboard.css */
+
+/* Reset and base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f8fa;
+  color: #1e2a3a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #dde5ec;
+  user-select: text;
+}
+
+.dashboard-header h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #007acc;
+  letter-spacing: 1.2px;
+  margin: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #4a5968;
+  user-select: none;
+}
+
+.user-info span {
+  background: #e1ecfc;
+  color: #1662d2;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  user-select: text;
+}
+
+.user-info button {
+  background-color: #f05050;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(240, 80, 80, 0.4);
+}
+
+.user-info button:hover,
+.user-info button:focus {
+  background-color: #d43c3c;
+  outline: none;
+}
+
+/* Content Wrapper */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Section Headings */
+h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #055a8c;
+  user-select: text;
+}
+
+/* Subscription Section */
+.subscription-section .subscription-card {
+  background-color: #e7f3fc;
+  padding: 24px 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(5, 90, 140, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  user-select: text;
+}
+
+.subscription-section .subscription-info p {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  color: #134e79;
+}
+
+.subscription-section strong {
+  font-weight: 700;
+  color: #0d3b56;
+}
+
+/* Status badges */
+.status {
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 18px;
+  margin-left: 10px;
+  letter-spacing: 0.03em;
+  user-select: text;
+  display: inline-block;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 12px rgba(0, 122, 204, 0.15);
+  min-width: 80px;
+  text-align: center;
+}
+
+.status.actif {
+  background-color: #d4f7d4;
+  color: #176f27;
+  box-shadow: 0 4px 14px rgba(23, 111, 39, 0.25);
+}
+
+.status.inactif {
+  background-color: #fce8e6;
+  color: #a02929;
+  box-shadow: 0 4px 14px rgba(160, 41, 41, 0.25);
+}
+
+/* Cancel subscription button */
+.cancel-subscription-btn {
+  background: linear-gradient(45deg, #ff5e62, #ff9966);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(255, 94, 98, 0.5);
+  cursor: pointer;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.cancel-subscription-btn:hover,
+.cancel-subscription-btn:focus {
+  background: linear-gradient(45deg, #d8383a, #ff5e62);
+  box-shadow: 0 14px 38px rgba(216, 56, 58, 0.7);
+  outline: none;
+}
+
+/* Services Section */
+.services-section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.services-section .section-header h3 {
+  margin: 0;
+  user-select: text;
+}
+
+.add-btn {
+  background-color: #2f86eb;
+  border: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 24px;
+  border-radius: 16px;
+  font-size: 1rem;
+  box-shadow: 0 8px 26px rgba(47, 134, 235, 0.4);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.add-btn:hover,
+.add-btn:focus {
+  background-color: #1565c0;
+  outline: none;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 22px 28px;
+  box-shadow: 0 6px 20px rgba(15, 90, 172, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: text;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  box-shadow: 0 12px 40px rgba(15, 90, 172, 0.15);
+  transform: translateY(-6px);
+  outline: none;
+}
+
+.service-card h4 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #055a8c;
+  user-select: text;
+}
+
+.service-card .price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #208020;
+  margin-bottom: 12px;
+  user-select: text;
+}
+
+.service-card .description {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #4a5968;
+  line-height: 1.45;
+  margin-bottom: 20px;
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+.service-actions button {
+  background-color: #ff8c00;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.service-actions button:hover,
+.service-actions button:focus {
+  background-color: #cc7000;
+  outline: none;
+}
+
+/* Empty state */
+.empty-state {
+  background-color: #e9eff7;
+  border: 2px dashed #a2b8db;
+  padding: 40px 28px;
+  border-radius: 18px;
+  text-align: center;
+  color: #556a8b;
+  font-size: 1.15rem;
+  user-select: text;
+}
+
+.empty-state p {
+  margin-bottom: 22px;
+}
+
+.create-first-service-btn {
+  background-color: #2f86eb;
+  color: #fff;
+  border-radius: 16px;
+  padding: 14px 30px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 26px rgba(47, 134, 235, 0.4);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.create-first-service-btn:hover,
+.create-first-service-btn:focus {
+  background-color: #1565c0;
+  outline: none;
+}
+
+/* Reservations Section */
+/* Section */
+.dash-resv-section h3 {
+  user-select: text;
+}
+
+/* List Container */
+.dash-resv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Reservation Card */
+.dash-resv-card {
+  background: #fafafb;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(90, 90, 90, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 28px;
+  gap: 20px;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  user-select: text;
+}
+
+.dash-resv-card:hover,
+.dash-resv-card:focus-within {
+  box-shadow: 0 16px 38px rgba(90, 90, 90, 0.12);
+  transform: translateY(-4px);
+  outline: none;
+}
+
+/* Date Style */
+.dash-resv-date strong {
+  font-size: 1.15rem;
+  color: #085083;
+  font-weight: 700;
+  white-space: nowrap;
+  user-select: text;
+}
+
+/* Info Block */
+.dash-resv-info p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #3a4756;
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+.dash-resv-info strong {
+  color: #1e2a3a;
+  font-weight: 700;
+  user-select: text;
+}
+
+/* Status Badge */
+.dash-resv-status {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-left: 6px;
+  color: #0f5132;
+  min-width: 90px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0, 122, 204, 0.15);
+  user-select: text;
+}
+
+/* Action Buttons */
+.dash-resv-actions button {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.dash-resv-actions button:hover {
+  background-color: #1e40af;
+}
+
+/* Empty State */
+.dash-resv-empty p {
+  font-style: italic;
+  color: #6b7280;
+  margin-top: 1rem;
+}
+
+/* Status colors */
+.status.confirmee {
+  background-color: #d1e7dd; /* light green background */
+  color: #0f5132; /* dark green text */
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.status.en_attente {
+  background-color: #ffc107;
+  color: #3a3a00;
+}
+
+.status.annulee {
+  background-color: #dc3545;
+  box-shadow: 0 4px 14px rgba(220, 53, 69, 0.35);
+}
+
+.status.terminee {
+  background-color: #6c757d;
+}
+
+/* Reservation action button */
+.reservation-actions button {
+  background-color: #007acc;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 122, 204, 0.4);
+  user-select: none;
+}
+
+.reservation-actions button:hover,
+.reservation-actions button:focus {
+  background-color: #005fa3;
+  outline: none;
+}
+
+/* Quick Stats Section */
+.stats-section h3 {
+  user-select: text;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 26px 32px;
+  box-shadow: 0 10px 28px rgba(0, 122, 204, 0.1);
+  text-align: center;
+  user-select: text;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover,
+.stat-card:focus-within {
+  box-shadow: 0 18px 40px rgba(0, 122, 204, 0.15);
+  transform: translateY(-4px);
+  outline: none;
+}
+
+.stat-card h4 {
+  color: #0a407c;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #007acc;
+  user-select: text;
+}
+
+/* Loading and Error states */
+.loading,
+.error {
+  text-align: center;
+  padding: 80px 20px;
+  color: #777;
+  user-select: none;
+}
+
+.error h2 {
+  color: #dc3545;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.error p {
+  font-weight: 600;
+  margin-bottom: 24px;
+  user-select: text;
+}
+
+.error button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.error button:hover,
+.error button:focus {
+  background-color: #a3262d;
+  outline: none;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .subscription-section .subscription-card {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .service-actions button,
+  .reservation-actions button,
+  .add-btn,
+  .cancel-subscription-btn,
+  .create-first-service-btn {
+    font-size: 0.95rem;
+    padding: 10px 22px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .user-info {
+    gap: 12px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 22px 24px;
+  }
+
+  .stat-number {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard {
+    margin: 20px 16px 50px;
+    padding: 0 12px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .subscription-section .subscription-card {
+    padding: 18px 20px;
+  }
+
+  .service-card,
+  .stat-card {
+    padding: 18px 22px;
+  }
+}
+/* Paiements Section */
+.paiements-section {
+  background: #fefefe;
+  border-radius: 24px;
+  margin: 3rem auto;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2e3440;
+  user-select: none;
+}
+
+/* Section header */
+.paiements-section > h3 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #3b4252;
+  letter-spacing: 0.04em;
+  user-select: text;
+}
+
+/* Paiements Container */
+.paiements-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Table Styling */
+.paiements-table {
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  width: 65%;
+  min-width: 370px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.05);
+  overflow: hidden;
+}
+
+.paiements-table thead tr {
+  background: linear-gradient(90deg, #4c51bf, #667eea);
+  color: #eef2ff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.paiements-table thead th {
+  padding: 1.35rem 1.8rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.paiements-table tbody tr {
+  background: #f9fafb;
+  border-radius: 14px;
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+
+.paiements-table tbody tr:hover {
+  background: #e0e7ff;
+}
+
+.paiements-table tbody td {
+  padding: 1.1rem 1.6rem;
+  font-size: 1rem;
+  color: #374151;
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: text;
+}
+
+.paiements-table tbody td.montant {
+  font-weight: 700;
+  color: #235789;
+}
+
+/* Payment mode and status badges */
+.payment-mode,
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  user-select: none;
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.05);
+}
+
+.payment-mode.online {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.payment-mode.cash {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status.completed,
+.status.complete,
+.status.payé,
+.status.confirmée {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status.pending,
+.status.attente {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status.failed,
+.status.echoué {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Summary Styling */
+.paiements-summary {
+  background: #ffffffdd;
+  border-radius: 24px;
+  box-shadow: 0 12px 25px rgb(101 113 151 / 0.15);
+  padding: 2.8rem 3.2rem;
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+/* Summary card heading */
+.summary-card > h4 {
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+  color: #434c5e;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 0.7rem;
+  letter-spacing: 0.05em;
+  user-select: text;
+}
+
+/* Summary statistics */
+.summary-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f0f4ff;
+  padding: 1.15rem 1.5rem;
+  border-radius: 16px;
+  font-weight: 600;
+  color: #273549;
+  box-shadow: inset 0 0 10px rgb(102 126 234 / 0.18);
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+
+.stat:hover {
+  background-color: #dbeafe;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  user-select: text;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.02em;
+  user-select: text;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .paiements-container {
+    flex-direction: column;
+  }
+  .paiements-table {
+    width: 100%;
+    min-width: auto;
+    margin-bottom: 2.8rem;
+  }
+  .paiements-summary {
+    width: 100%;
+    min-width: auto;
+    padding: 2rem 2.5rem;
+  }
+  .summary-card > h4 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .paiements-section {
+    padding: 2rem 1.5rem;
+  }
+  .paiements-section > h3 {
+    font-size: 1.8rem;
+  }
+  .paiements-table thead th,
+  .paiements-table tbody td {
+    padding: 1rem 1rem;
+    font-size: 0.9rem;
+  }
+  .stat-label {
+    font-size: 1rem;
+  }
+  .stat-value {
+    font-size: 1.1rem;
+  }
+}
+.avis-btn {
+  background-color: #29a51eb5; /* Nice blue */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avis-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.avis-btn:active {
+  transform: translateY(0);
+}
+.pdf-export-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pdf-export-section h3 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.pdf-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.pdf-buttons button {
+  background-color: #3498db;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdf-buttons button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.pdf-buttons button:active {
+  background-color: #2471a3;
+  transform: scale(0.98);
+}
+

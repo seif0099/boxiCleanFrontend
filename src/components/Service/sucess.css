@@ -1,0 +1,62 @@
+.reservation-success-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+  font-family: "Poppins", sans-serif;
+  padding: 2rem;
+}
+
+.reservation-success-content {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.reservation-success-content h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+
+.reservation-success-content p {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
+}
+
+.reservation-success-details {
+  text-align: left;
+  background-color: #f1f5f9;
+  border-left: 4px solid #0ea5e9;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.reservation-success-details p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.reservation-success-btn {
+  background-color: #0ea5e9;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-success-btn:hover {
+  background-color: #0284c7;
+}

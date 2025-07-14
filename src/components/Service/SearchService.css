@@ -1,0 +1,172 @@
+/* Redesigned SearchService.css */
+
+.search-service-container {
+  padding: 30px 25px;
+  max-width: 1140px;
+  margin: 40px auto;
+  background: #f9fafb;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(100, 115, 140, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+.search-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #34495e;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.search-input,
+.price-input,
+.location-input {
+  flex: 1 1 280px;
+  min-width: 280px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 2px solid #d1dce6;
+  font-size: 15px;
+  color: #34495e;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: text;
+}
+
+.search-input::placeholder,
+.price-input::placeholder,
+.location-input::placeholder {
+  color: #a3b1c2;
+  font-style: italic;
+}
+
+.search-input:focus,
+.price-input:focus,
+.location-input:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 12px rgba(41, 128, 185, 0.45);
+  outline: none;
+  background-color: #f0f8ff;
+  color: #1c2e4a;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 6px 18px rgba(52, 73, 94, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+.service-card:hover,
+.service-card:focus {
+  box-shadow: 0 16px 40px rgba(41, 128, 185, 0.25);
+  transform: translateY(-6px);
+  outline: none;
+}
+
+.service-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 9px;
+  letter-spacing: 0.03em;
+}
+
+.service-description {
+  flex-grow: 1;
+  font-size: 15px;
+  color: #64707d;
+  line-height: 1.45;
+  margin-bottom: 18px;
+  user-select: text;
+}
+
+.service-price {
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 17px;
+  margin-bottom: 10px;
+  user-select: text;
+}
+
+.service-location {
+  font-size: 14px;
+  color: #7f8c8d;
+  font-style: italic;
+  user-select: text;
+  align-self: flex-start;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .search-service-container {
+    padding: 24px 18px;
+  }
+
+  .search-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .search-input,
+  .price-input,
+  .location-input {
+    min-width: 100%;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  .service-card {
+    padding: 20px 22px;
+    min-height: auto;
+  }
+
+  .service-name {
+    font-size: 18px;
+  }
+
+  .service-price {
+    font-size: 16px;
+  }
+
+  .service-description {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .service-location {
+    font-size: 13px;
+  }
+}

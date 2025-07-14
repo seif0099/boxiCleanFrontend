@@ -1,0 +1,736 @@
+/* Client Dashboard Redesign */
+
+/* Base reset & typography */
+.client-dashboard {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #f0f4ff, #e1e9ff);
+  color: #1f2937;
+  min-height: 100vh;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  user-select: none;
+}
+
+/* Header */
+.client-header {
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  user-select: text;
+}
+
+.client-header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1e40af;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 6px rgba(30, 64, 175, 0.3);
+}
+
+.client-header p {
+  font-size: 1.25rem;
+  color: #4b5563;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+}
+
+/* Logout button */
+.logout-btn {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  padding: 16px 38px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  will-change: transform;
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  box-shadow: 0 12px 40px rgba(30, 64, 175, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.logout-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.45);
+}
+
+/* Summary Cards Container */
+.client-summary {
+  display: flex;
+  gap: 2.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1080px;
+  width: 100%;
+}
+
+/* Individual card style */
+.card {
+  background: white;
+  flex: 1 1 240px;
+  max-width: 260px;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow:
+    0 12px 30px rgb(59 130 246 / 0.12),
+    inset 0 0 15px rgba(59, 130, 246, 0.03);
+  text-align: center;
+  cursor: default;
+  color: #334155;
+  user-select: text;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 45px rgba(59, 130, 246, 0.25),
+    inset 0 0 20px rgba(59, 130, 246, 0.08);
+  outline: none;
+}
+
+.card h3 {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+  user-select: text;
+}
+
+.card p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #1e293b;
+  user-select: text;
+}
+
+/* Status tag base */
+.status-tag {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+  padding: 6px 16px;
+  border-radius: 22px;
+  user-select: none;
+  text-align: center;
+  box-shadow:
+    0 3px 8px rgb(0 0 0 / 0.08);
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  min-width: 92px;
+}
+
+/* Specific status colors */
+.status-tag.terminee {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #dcfce7;
+  box-shadow:
+    0 5px 18px rgba(34, 197, 94, 0.6),
+    inset 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.status-tag.annulee {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #fee2e2;
+  box-shadow:
+    0 5px 18px rgba(239, 68, 68, 0.6),
+    inset 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.status-tag.en_attente {
+  background: linear-gradient(135deg, #facc15, #a16207);
+  color: #fffbeb;
+  box-shadow:
+    0 5px 18px rgba(250, 204, 21, 0.6),
+    inset 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.status-tag.confirme {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #dbeafe;
+  box-shadow:
+    0 5px 18px rgba(59, 130, 246, 0.7),
+    inset 0 0 14px rgba(255, 255, 255, 0.45);
+}
+
+/* Badge for upcoming reservations */
+.badge-upcoming {
+  display: inline-block;
+  background: #facc15;
+  color: #713f12;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 5px 14px;
+  border-radius: 14px;
+  margin-left: 12px;
+  text-shadow: 0 0 4px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 2px 10px rgba(250, 204, 21, 0.4);
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.badge-upcoming:hover,
+.badge-upcoming:focus {
+  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.65);
+  outline: none;
+}
+
+/* Button to explore services */
+.go-services-btn {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border: none;
+  color: white;
+  padding: 16px 48px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(59, 130, 246, 0.5);
+  transition: background-color 0.3s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.go-services-btn:hover,
+.go-services-btn:focus {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.go-services-btn:active {
+  transform: translateY(1px);
+}
+
+/* Review Section */
+.review-section {
+  max-width: 750px;
+  width: 100%;
+  background: #fff;
+  padding: 30px 36px;
+  border-radius: 22px;
+  box-shadow:
+    0 10px 26px rgba(59, 130, 246, 0.15),
+    inset 0 0 18px rgba(59, 130, 246, 0.07);
+  user-select: none;
+  font-weight: 600;
+  color: #334155;
+}
+
+.review-section h3 {
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e40af;
+  user-select: text;
+}
+
+/* Reservation list for selection */
+.reservation-selection p {
+  margin-bottom: 1rem;
+  color: #475569;
+  font-weight: 600;
+  user-select: text;
+}
+
+.reservation-list {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  user-select: none;
+  padding-right: 6px; /* For scrollbar space */
+}
+
+/* Scrollbar styling */
+.reservation-list::-webkit-scrollbar {
+  width: 8px;
+}
+.reservation-list::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 20px;
+}
+
+/* Reservation item */
+.reservation-item {
+  background: #f9fbff;
+  border-radius: 18px;
+  box-shadow: inset 0 0 8px rgba(59, 130, 246, 0.08);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.reservation-item:hover,
+.reservation-item:focus-within {
+  background-color: #e0e7ff;
+  outline-offset: 2px;
+}
+
+/* Reservation info block */
+.reservation-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: 60%;
+  overflow: hidden;
+  user-select: text;
+}
+
+.reservation-info strong {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1e40af;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reservation-date {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.reservation-description {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Select reservation button */
+.select-reservation-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 11px 26px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.select-reservation-btn:hover,
+.select-reservation-btn:focus {
+  background: #1d4ed8;
+  box-shadow: 0 8px 26px rgba(29, 78, 216, 0.85);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.select-reservation-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 18px rgba(29, 78, 216, 0.4);
+}
+
+/* Review form container */
+.review-form-container {
+  user-select: none;
+}
+
+/* Selected reservation info */
+.selected-reservation-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #e0e7ff;
+  font-weight: 700;
+  color: #1e293b;
+  user-select: text;
+  font-size: 1.1rem;
+}
+
+/* Cancel review button */
+.cancel-review-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  min-width: 120px;
+  text-align: center;
+}
+
+.cancel-review-btn:hover,
+.cancel-review-btn:focus {
+  background-color: #b91c1c;
+  box-shadow: 0 8px 26px rgba(185, 28, 28, 0.85);
+  outline: none;
+}
+
+/* The review form */
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  user-select: text;
+}
+
+.review-form label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1e293b;
+  user-select: text;
+}
+
+.review-form input[type="number"],
+.review-form textarea {
+  font-size: 1.05rem;
+  border-radius: 16px;
+  border: 2.2px solid #bfdbfe;
+  padding: 14px 22px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #1e293b;
+  background-color: #f0f9ff;
+  box-shadow: inset 0 3px 8px rgba(0, 95, 204, 0.12);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  resize: vertical;
+  min-width: 0;
+}
+
+.review-form input[type="number"] {
+  max-width: 120px;
+  text-align: center;
+  background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 2l3.212 6.58L21 9.06l-5.24 4.97L17.618 21 11 17.75 4.382 21l1.857-7L1 9.06l6.788-0.48L11 2z' fill='%23facc15'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  background-size: 22px 22px;
+  padding-right: 52px;
+}
+
+.review-form input[type="number"]::placeholder,
+.review-form textarea::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.review-form input[type="number"]:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #e0e7ff;
+  box-shadow:
+    0 0 10px 3px rgba(37, 99, 235, 0.55),
+    inset 0 1px 6px rgba(37, 99, 235, 0.25);
+}
+
+.review-form input[type="number"]:disabled,
+.review-form textarea:disabled {
+  background-color: #cfd8e9;
+  border-color: #adbadd;
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+/* Submit button */
+.review-form button[type="submit"] {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  padding: 16px 36px;
+  border-radius: 20px;
+  font-size: 1.15rem;
+  box-shadow: 0 8px 28px rgba(59, 130, 246, 0.65);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  user-select: none;
+  max-width: 320px;
+  align-self: flex-start;
+}
+
+.review-form button[type="submit"]:hover:not(:disabled),
+.review-form button[type="submit"]:focus:not(:disabled) {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  box-shadow: 0 12px 38px rgba(30, 64, 175, 0.7);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.review-form button[type="submit"]:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.review-form button[type="submit"]:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 6px 22px rgba(30, 64, 175, 0.5);
+}
+
+/* Recent reservations section */
+.recent-reservations {
+  max-width: 850px;
+  width: 100%;
+  user-select: text;
+}
+
+.recent-reservations h3 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #1e40af;
+}
+
+.recent-reservations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-reservations li {
+  background: white;
+  padding: 14px 24px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  box-shadow: 0 6px 14px rgba(37, 78, 168, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  color: #334155;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+.recent-reservations li:hover,
+.recent-reservations li:focus-within {
+  background-color: #ebf2ff;
+  box-shadow: 0 8px 22px rgba(37, 78, 168, 0.22);
+  outline: none;
+}
+
+.recent-reservations strong {
+  flex: 2 1 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1e3a8a;
+}
+
+.recent-reservations span {
+  flex: 1 1 120px;
+  font-size: 0.9rem;
+  color: #64748b;
+  user-select: none;
+}
+
+.badge-reviewed {
+  color: #22c55e;
+  font-size: 1.2rem;
+  user-select: none;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .client-summary {
+    justify-content: center;
+  }
+  .card {
+    max-width: 320px;
+    flex: 1 1 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .client-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .client-header p {
+    font-size: 1.1rem;
+  }
+
+  .client-summary {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .go-services-btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 14px 0;
+  }
+
+  .review-section,
+  .recent-reservations {
+    padding: 2rem 1.5rem;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .review-section {
+    max-width: 100%;
+  }
+  
+  .recent-reservations li {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .recent-reservations strong,
+  .recent-reservations span,
+  .badge-reviewed {
+    flex: none;
+    white-space: normal;
+  }
+  
+  .reservation-info {
+    max-width: 100% !important;
+  }
+  
+  .reservation-description {
+    white-space: normal;
+  }
+}
+/* Modal Overlay with subtle blur and dark translucent background */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  animation: fadeInOverlay 0.3s ease forwards;
+}
+
+/* Modal Content with modern shadows and smooth rounded corners */
+.modal-content {
+  background: #fff;
+  padding: 2.5rem 2.8rem;
+  border-radius: 16px;
+  max-height: 80vh;
+  width: 90%;
+  max-width: 620px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow:
+    0 16px 36px rgba(15, 23, 42, 0.2),
+    inset 0 0 18px rgba(255, 255, 255, 0.7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+  user-select: text;
+  scroll-behavior: smooth;
+}
+
+/* Close button styling with a modern circular style */
+.close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(220, 220, 220, 0.9);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(51, 65, 85, 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  background: #f87171;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 6px 16px rgba(248, 113, 113, 0.6);
+  transform: scale(1.1);
+}
+
+/* Modal list with spacing and neat bottom border */
+.modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-list li {
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1rem;
+  color: #475569;
+  user-select: text;
+  line-height: 1.5;
+  transition: background-color 0.2s ease;
+  border-radius: 6px;
+}
+
+.modal-list li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+/* Optional: hover effect on list items */
+.modal-list li:hover {
+  background-color: #f1f5f9;
+}
+  
+/* Overlay fade-in animation */
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.8rem 2rem;
+    width: 95%;
+  }
+
+  .close-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+    top: 1rem;
+    right: 1rem;
+  }
+}
