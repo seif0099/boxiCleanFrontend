@@ -1,290 +1,342 @@
-.user-container {
-  max-width: 1100px;
-  margin: 3rem auto 4rem;
-  padding: 3rem 3.5rem;
-  background: #fff;
+/* Redesigned Abonnement Management Section - Fresh & Elegant */
+
+.abonnement-mgmt-container {
+  padding: 1rem 2.5rem;
+  max-width: 1200px;
+  margin: 0rem auto;
+  background: #f9fbff;
   border-radius: 24px;
   box-shadow:
-    0 24px 48px rgba(31, 41, 55, 0.08),
-    inset 0 0 24px rgba(255, 255, 255, 0.95);
+    0 20px 40px rgba(7, 30, 80, 0.06),
+    inset 0 0 25px rgba(255, 255, 255, 0.95);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #1f2937;
   user-select: none;
-  transition: box-shadow 0.35s ease;
+  transition: box-shadow 0.4s ease;
 }
 
-.user-container:hover {
+.abonnement-mgmt-container:hover {
   box-shadow:
-    0 36px 68px rgba(31, 41, 55, 0.12),
-    inset 0 0 32px rgba(255, 255, 255, 1);
+    0 28px 56px rgba(7, 30, 80, 0.12),
+    inset 0 0 30px rgba(255, 255, 255, 1);
 }
 
-.user-container h2 {
-  font-size: 2.6rem;
-  font-weight: 800;
+/* Section Title */
+.abonnement-mgmt-container h2 {
+  margin-bottom: 2.5rem;
   color: #334155;
-  margin-bottom: 2.8rem;
+  font-size: 2.4rem;
+  font-weight: 800;
   text-align: center;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.06);
   user-select: text;
-  text-shadow: 0 3px 10px rgb(51 65 85 / 0.08);
 }
 
-/* Filter area */
-.user-container > div:first-of-type {
-  margin-bottom: 2rem;
+/* Filter Section */
+.abonnement-mgmt-filter {
+  margin-bottom: 24px;
+  padding: 1.2rem 1.6rem;
+  background-color: #fefefe;
+  border-radius: 16px;
+  border: 1.5px solid #c0c9d5;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  user-select: none;
+  gap: 1.4rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  user-select: none;
+  transition: box-shadow 0.3s ease;
 }
 
-.user-container label {
+.abonnement-mgmt-filter:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.abonnement-mgmt-filter label {
   font-weight: 700;
-  color: #475569;
   font-size: 1.1rem;
+  color: #475569;
   user-select: text;
   min-width: max-content;
 }
 
-/* Select dropdown */
-#type-filter {
-  padding: 0.6rem 1.2rem;
-  font-size: 1.05rem;
+/* Dropdown styling */
+.abonnement-mgmt-filter select {
+  padding: 0.65rem 1.2rem;
   border-radius: 18px;
-  border: 2px solid #a5b4fc;
-  background-color: #eef4ff;
-  color: #1e293b;
+  border: 2px solid #a6b0c3;
+  background-color: #f7faff;
+  font-size: 1rem;
+  color: #3b475a;
+  min-width: 240px;
   cursor: pointer;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.08);
-  min-width: 230px;
-  font-weight: 600;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.06);
   transition:
-    border-color 0.3s ease,
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
   user-select: none;
+  font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#type-filter:hover {
-  background-color: #d7e2ff;
+.abonnement-mgmt-filter select:hover {
+  background-color: #e9f0ff;
 }
 
-#type-filter:focus {
+.abonnement-mgmt-filter select:focus {
   outline: none;
   border-color: #2563eb;
-  background-color: #ffffff;
+  background-color: #fff;
   box-shadow:
-    0 0 14px 6px rgba(37, 99, 235, 0.5),
-    inset 0 1px 6px rgba(37, 99, 235, 0.3);
+    0 0 10px 4px rgba(37, 99, 235, 0.5),
+    inset 0 2px 8px rgba(37, 99, 235, 0.25);
 }
 
-/* Loading / no data text */
-.user-container p {
-  font-style: italic;
-  font-weight: 600;
-  font-size: 1.15rem;
+/* Loading and empty states */
+.abonnement-mgmt-container p {
   color: #64748b;
+  font-size: 1.15rem;
   text-align: center;
+  font-style: italic;
   margin-top: 3rem;
+  padding: 2rem;
   user-select: text;
+  font-weight: 500;
 }
 
-/* Table styling */
-table {
+/* Abonnements Table */
+.abonnement-mgmt-table {
   width: 100%;
+  max-width: 1000px;
+  margin: 2.2rem auto;
   border-collapse: separate;
   border-spacing: 0 18px;
-  background: #ffffff;
+  box-shadow:
+    0 5px 18px rgba(50, 57, 102, 0.09);
   border-radius: 20px;
-  box-shadow: 0 24px 48px rgba(50, 57, 102, 0.08);
-  font-size: 1rem;
-  color: #334155;
-  user-select: text;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
+  font-size: 1.05rem;
+  background: #ffffffee;
+  user-select: text;
+  color: #334155;
 }
 
-table:hover {
-  box-shadow: 0 36px 68px rgba(50, 57, 102, 0.12);
-}
-
-/* Table Head */
-thead tr {
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+/* Table Header */
+.abonnement-mgmt-table thead tr {
+  background: linear-gradient(90deg, #2e4acc, #2461d4);
   color: #fefefe;
-  font-weight: 700;
-  font-size: 13.5px;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
-  box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.13);
+  font-weight: 800;
+  font-size: 13.5px;
+  letter-spacing: 0.12em;
   user-select: none;
+  box-shadow:
+    inset 0 -6px 8px rgba(0, 0, 0, 0.14);
 }
 
-thead th {
-  padding: 18px 24px;
+.abonnement-mgmt-table thead th {
+  padding: 16px 18px;
   text-align: left;
   border: none;
-  user-select: none;
-  white-space: nowrap;
 }
 
-/* Table Body */
-tbody tr {
-  background: #fefeff;
-  border-radius: 20px;
+/* Table Body Rows */
+.abonnement-mgmt-table tbody tr {
+  background: #fafcfe;
+  border-radius: 18px;
   box-shadow:
-    0 10px 22px rgba(37, 99, 235, 0.07);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    0 4px 14px rgba(36, 81, 181, 0.06);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
   cursor: default;
 }
 
-tbody tr:hover {
+.abonnement-mgmt-table tbody tr:hover {
   background-color: #e7efff;
   box-shadow:
-    0 16px 38px rgba(37, 99, 235, 0.16);
+    0 8px 26px rgba(36, 81, 181, 0.15);
 }
 
-tbody td {
-  padding: 16px 24px;
-  vertical-align: middle;
+.abonnement-mgmt-table tbody td {
+  padding: 16px 18px;
+  border-bottom: none;
   color: #475569;
+  vertical-align: middle;
   user-select: text;
-  white-space: nowrap;
 }
 
-/* Emphasize specific columns */
-tbody td:nth-child(1),
-tbody td:nth-child(3),
-tbody td:nth-child(7) {
+/* Emphasize first column (Name) */
+.abonnement-mgmt-table tbody td:first-child {
   font-weight: 700;
-  color: #1e40af;
-  text-transform: capitalize;
+  color: #1e293b;
 }
 
-/* Amount column with stronger emphasis */
-tbody td:nth-child(4) {
+/* Email column styling */
+.abonnement-mgmt-table tbody td:nth-child(2) {
+  color: #4338ca;
+  font-weight: 500;
+}
+
+/* Montant column styling */
+.abonnement-mgmt-table tbody td:nth-child(4) {
+  font-weight: 700;
+  color: #059669;
+}
+
+/* Type abonnement styling */
+.abonnement-mgmt-table tbody td:nth-child(3) {
   font-weight: 600;
-  color: #2f4aab;
-  user-select: text;
+  text-transform: capitalize;
+  color: #7c3aed;
 }
 
-/* Date columns styled italic */
-tbody td:nth-child(5),
-tbody td:nth-child(6) {
-  font-style: italic;
-  color: #64748b;
-  user-select: text;
+/* Status column styling */
+.abonnement-mgmt-table tbody td:nth-child(7) {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .user-container {
-    padding: 2.2rem 2rem;
-  }
-
-  #type-filter {
-    min-width: 100%;
-    margin-top: 0.8rem;
-  }
-
-  .user-container > div:first-of-type {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    border-radius: 18px;
-  }
-
-  thead tr,
-  tbody tr {
-    display: table-row;
-  }
-
-  tbody td {
-    white-space: nowrap;
-  }
+/* Status color coding */
+.abonnement-mgmt-table tbody td:nth-child(7) {
+  color: #059669; /* Default active color */
 }
 
-@media (max-width: 480px) {
-  .user-container h2 {
-    font-size: 2.2rem;
-    letter-spacing: 0.04em;
-  }
-
-  #type-filter {
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-  }
-
-  tbody td {
-    font-size: 0.9rem;
-  }
-}
-.abonnement-mgmt-container {
-  padding: 1.5rem;
+/* You can add specific status classes if needed */
+.abonnement-mgmt-table tbody tr[data-status="actif"] td:nth-child(7) {
+  color: #059669;
 }
 
-.abonnement-mgmt-filter {
-  text-align: right;
-  margin-bottom: 1rem;
+.abonnement-mgmt-table tbody tr[data-status="expire"] td:nth-child(7) {
+  color: #dc2626;
 }
 
-.abonnement-mgmt-filter label {
-  margin-right: 0.5rem;
-  font-weight: bold;
+.abonnement-mgmt-table tbody tr[data-status="suspendu"] td:nth-child(7) {
+  color: #d97706;
 }
 
-.abonnement-mgmt-filter select {
-  padding: 0.4rem;
-  border-radius: 8px;
+/* Last row style */
+.abonnement-mgmt-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.abonnement-mgmt-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
-
-.abonnement-mgmt-table th,
-.abonnement-mgmt-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
+/* Pagination */
 .abonnement-mgmt-pagination {
-  margin-top: 20px;
+  margin-top: 2.5rem;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  padding: 1rem 0;
 }
 
 .pagination-btn {
-  padding: 8px 14px;
-  border: 1px solid #ccc;
-  background: #f7fafc;
+  padding: 12px 20px;
+  border: 2px solid #cbd5e1;
+  background: #f8fafc;
   cursor: pointer;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  color: #475569;
+  min-width: 48px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  user-select: none;
 }
 
 .pagination-btn:hover {
   background-color: #e2e8f0;
+  border-color: #94a3b8;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .pagination-btn.active {
-  background-color: #3182ce;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: white;
-  border-color: #3182ce;
+  border-color: #2563eb;
+  box-shadow: 
+    0 6px 20px rgba(37, 99, 235, 0.4),
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.pagination-btn.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 8px 24px rgba(37, 99, 235, 0.5),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .abonnement-mgmt-container {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Stack filters vertically */
+  .abonnement-mgmt-filter {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.2rem;
+  }
+
+  /* Dropdown full width */
+  .abonnement-mgmt-filter select {
+    width: 100%;
+    min-width: auto;
+  }
+
+  /* Compact table adjustments */
+  .abonnement-mgmt-table {
+    font-size: 0.95rem;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(36, 81, 181, 0.1);
+  }
+
+  .abonnement-mgmt-table thead tr {
+    font-size: 12px;
+  }
+
+  .abonnement-mgmt-table thead th,
+  .abonnement-mgmt-table tbody td {
+    padding: 12px 10px;
+  }
+
+  /* Hide some columns on small screens */
+  .abonnement-mgmt-table thead th:nth-child(5),
+  .abonnement-mgmt-table thead th:nth-child(6),
+  .abonnement-mgmt-table tbody td:nth-child(5),
+  .abonnement-mgmt-table tbody td:nth-child(6) {
+    display: none;
+  }
+
+  /* Adjust pagination for mobile */
+  .pagination-btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-width: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .abonnement-mgmt-container h2 {
+    font-size: 2rem;
+  }
+
+  /* Further hide columns on very small screens */
+  .abonnement-mgmt-table thead th:nth-child(4),
+  .abonnement-mgmt-table tbody td:nth-child(4) {
+    display: none;
+  }
+
+  .abonnement-mgmt-table {
+    font-size: 0.9rem;
+  }
+
+  .pagination-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
 }

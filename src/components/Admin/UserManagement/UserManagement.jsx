@@ -6,7 +6,7 @@ const UserManagement = () => {
   const [roleFilter, setRoleFilter] = useState("all");
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 10;
+  const usersPerPage = 6;
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

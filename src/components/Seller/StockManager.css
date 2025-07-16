@@ -1,0 +1,128 @@
+/* StockManager Styles - Inspired by productForm.css */
+
+.stock-manager-container {
+  background: #f9fbff;
+  border-radius: 22px;
+  box-shadow: 0 18px 36px rgba(31, 41, 55, 0.09), inset 0 0 18px #fff;
+  padding: 2.2rem 2rem 2.5rem;
+  max-width: 700px;
+  margin: 2.5rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+}
+
+.stock-manager-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(37, 99, 235, 0.13);
+  user-select: text;
+}
+
+.stock-manager-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 14px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(56, 58, 100, 0.09);
+  overflow: hidden;
+  font-size: 1rem;
+  color: #334155;
+  user-select: text;
+}
+
+.stock-manager-table th,
+.stock-manager-table td {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+}
+
+.stock-manager-table th {
+  background: #f1f5fb;
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid #e0e7ef;
+}
+
+.stock-manager-table tr {
+  border-radius: 12px;
+  transition: background 0.18s;
+}
+
+.stock-manager-table tr:hover {
+  background: #f3f7fd;
+}
+
+.stock-manager-table td {
+  background: #fff;
+  border-bottom: 1px solid #f1f5fb;
+}
+
+.stock-manager-input {
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.stock-manager-input:focus {
+  border-color: #2563eb;
+}
+
+.stock-manager-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+  transition: background 0.2s;
+  margin-right: 0.5rem;
+}
+
+.stock-manager-btn:hover {
+  background: #1d4ed8;
+}
+
+.stock-manager-btn-cancel {
+  background: #e5e7eb;
+  color: #334155;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.stock-manager-btn-cancel:hover {
+  background: #cbd5e1;
+}
+
+@media (max-width: 600px) {
+  .stock-manager-container {
+    padding: 1.2rem 0.6rem 2rem;
+    border-radius: 14px;
+  }
+  .stock-manager-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  .stock-manager-table th,
+  .stock-manager-table td {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.95rem;
+  }
+}

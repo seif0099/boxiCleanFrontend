@@ -1,0 +1,74 @@
+.admin-home-container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.admin-welcome {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.admin-subtext {
+  font-size: 1.1rem;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+.admin-kpis {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.kpi-card {
+  flex: 1;
+  background: #f8fafc;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.07);
+  text-align: center;
+  min-width: 200px;
+}
+
+.kpi-card h3 {
+  font-size: 1rem;
+  color: #1e3a8a;
+  margin-bottom: 0.4rem;
+}
+
+.kpi-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #334155;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-btn {
+  background: #2563eb;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.admin-btn:hover {
+  background: #1e40af;
+}

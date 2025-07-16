@@ -8,7 +8,7 @@ const ActivitiesSupervision = () => {
   const [loading, setLoading] = useState(true);
   const [paymentFilter, setPaymentFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const reservationsPerPage = 10;
+  const reservationsPerPage = 6;
 
   // Fetch reservations
   useEffect(() => {

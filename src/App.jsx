@@ -16,6 +16,7 @@ import PrestataireDashboard from "./components/prestataire/PrestataireDashboard"
 import Abonnement from "./components/prestataire/abonnement/Abonnement";
 import SuccessPage from "./components/prestataire/SuccessPage";
 import CancelPage from "./components/prestataire/CancelPage";
+import SellerDashboard from "./components/Seller/SellerDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -41,6 +42,7 @@ function App() {
           path="/prestataire-dashboard"
           element={<PrestataireDashboard />}
         />
+        <Route path="/vendeur-dashboard" element={<SellerDashboard />} />
 
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>{" "}

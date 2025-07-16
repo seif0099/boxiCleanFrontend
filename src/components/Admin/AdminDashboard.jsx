@@ -4,6 +4,8 @@ import AdminHome from "./AdminHome";
 import UserManagement from "./UserManagement/UserManagement";
 import ActivitiesSupervision from "./ActivitySupervision/ActivitiesSupervision";
 import AbonnementManagement from "./Abonnement/AbonnementManagement";
+import StatsReports from "./AdminStats/StatsReport";
+import PrestataireValidation from "./PrestataireValidation/PrestataireValidation";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -11,17 +13,17 @@ const AdminDashboard = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "dashboard":
-        return <AdminHome />;
+        return <AdminHome onSelect={setActiveTab} />;
       case "users":
         return <UserManagement />; // ✅ now this works!
       case "activities":
         return <ActivitiesSupervision />;
       case "plans":
-  return <AbonnementManagement />;
+        return <AbonnementManagement />;
       case "validation":
-        return <div>✅ Prestataire Validation Coming Soon</div>;
+        return <PrestataireValidation />;
       case "stats":
-        return <div>📊 Stats & Reports Coming Soon</div>;
+        return <StatsReports />;
       case "rankings":
         return <div>🏆 Rankings Coming Soon</div>;
       default:

@@ -1,0 +1,140 @@
+/* Prestataire Validation - Styled Elegantly */
+
+.prestataire-validation-container {
+  padding: 2rem 2.5rem;
+  max-width: 1100px;
+  margin: 3rem auto;
+  background: #f9fbff;
+  border-radius: 24px;
+  box-shadow:
+    0 24px 48px rgba(7, 30, 80, 0.06),
+    inset 0 0 24px rgba(255, 255, 255, 0.95);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  user-select: none;
+  transition: box-shadow 0.35s ease;
+}
+
+.prestataire-validation-container:hover {
+  box-shadow:
+    0 32px 64px rgba(7, 30, 80, 0.12),
+    inset 0 0 32px rgba(255, 255, 255, 1);
+}
+
+/* Title */
+.prestataire-validation-container h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+  color: #334155;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+}
+
+/* Table Styling */
+.prestataire-validation-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 16px;
+  background-color: transparent;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.prestataire-validation-table thead tr {
+  background: linear-gradient(90deg, #2e4acc, #2461d4);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 13.5px;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+}
+
+.prestataire-validation-table thead th {
+  padding: 16px 18px;
+  text-align: left;
+  border: none;
+}
+
+.prestataire-validation-table tbody tr {
+  background: #fefefe;
+  box-shadow:
+    0 4px 14px rgba(36, 81, 181, 0.08);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 18px;
+}
+
+.prestataire-validation-table tbody tr:hover {
+  background-color: #e6f0ff;
+  box-shadow:
+    0 8px 24px rgba(36, 81, 181, 0.2);
+}
+
+.prestataire-validation-table tbody td {
+  padding: 16px 18px;
+  border-bottom: none;
+  vertical-align: middle;
+  color: #475569;
+}
+
+.prestataire-validation-table tbody td:first-child {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Validation Button */
+.validate-btn {
+  padding: 9px 18px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow:
+    0 4px 12px rgba(16, 185, 129, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.validate-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow:
+    0 6px 18px rgba(16, 185, 129, 0.6),
+    inset 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+/* Loading & Empty Message */
+.prestataire-validation-container p {
+  text-align: center;
+  font-style: italic;
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  user-select: text;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prestataire-validation-container {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .prestataire-validation-table {
+    font-size: 0.95rem;
+  }
+
+  .prestataire-validation-table thead th,
+  .prestataire-validation-table tbody td {
+    padding: 12px 14px;
+  }
+
+  .validate-btn {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}

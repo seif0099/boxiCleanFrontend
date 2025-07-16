@@ -1,0 +1,80 @@
+/* SellerDashboard Container */
+.seller-dashboard {
+  max-width: 96rem; /* 6xl = 96rem */
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  user-select: none;
+}
+
+/* Heading */
+.seller-dashboard h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #2563eb; /* blue-700 */
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  user-select: text;
+  text-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+  line-height: 1.1;
+}
+
+/* Sections Wrapper */
+.seller-dashboard section {
+  margin-bottom: 4rem;
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  box-shadow:
+    0 20px 48px rgba(37, 99, 235, 0.12),
+    inset 0 0 20px rgba(255, 255, 255, 0.95);
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  user-select: none;
+}
+
+/* Hover effect for sections */
+.seller-dashboard section:hover,
+.seller-dashboard section:focus-within {
+  box-shadow:
+    0 28px 70px rgba(37, 99, 235, 0.25),
+    inset 0 0 28px rgba(255, 255, 255, 1);
+  transform: translateY(-4px);
+  outline: none;
+}
+
+/* Make form and lists inside sections user-select text */
+.seller-dashboard section * {
+  user-select: text;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .seller-dashboard h1 {
+    font-size: 2.1rem;
+  }
+
+  .seller-dashboard section {
+    padding: 1.6rem 2rem;
+    margin-bottom: 3rem;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seller-dashboard {
+    padding: 1rem 1rem;
+  }
+
+  .seller-dashboard h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .seller-dashboard section {
+    padding: 1.2rem 1.6rem;
+    margin-bottom: 2.5rem;
+    border-radius: 16px;
+  }
+}

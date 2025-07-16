@@ -6,7 +6,7 @@ const AbonnementManagement = () => {
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const abonnementsPerPage = 10;
+  const abonnementsPerPage = 6;
 
   useEffect(() => {
     fetch("http://localhost:5000/admin/abonnements")

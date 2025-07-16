@@ -1,0 +1,147 @@
+/* StatsReports Component Styles */
+
+.stats-reports {
+  padding: 2.5rem 2rem;
+  max-width: 1120px;
+  margin: 3rem auto 4rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+  user-select: none;
+  background: #f9fbff;
+  border-radius: 24px;
+  box-shadow:
+    0 24px 48px rgba(31, 41, 55, 0.08),
+    inset 0 0 24px rgba(255, 255, 255, 0.95);
+  transition: box-shadow 0.35s ease;
+}
+
+.stats-reports:hover {
+  box-shadow:
+    0 36px 68px rgba(31, 41, 55, 0.12),
+    inset 0 0 32px rgba(255, 255, 255, 1);
+}
+
+/* Main Title */
+.stats-reports h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #2563eb;
+  margin-bottom: 3rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-shadow: 0 3px 12px rgba(37, 99, 235, 0.4);
+  user-select: text;
+}
+
+/* Grid container for rows */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) !important;  /* Always two columns */
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+
+/* Individual chart container */
+.chart-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem 2rem 2.4rem;
+  box-shadow:
+    0 14px 36px rgba(37, 78, 168, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.chart-card:hover,
+.chart-card:focus-within {
+  box-shadow:
+    0 20px 48px rgba(37, 78, 168, 0.2),
+    inset 0 0 28px rgba(255, 255, 255, 1);
+  transform: translateY(-4px);
+  outline: none;
+}
+
+/* Chart Title */
+.chart-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.2rem;
+  user-select: text;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* Inner chart wrapper - ensure consistent height */
+.chart-wrapper {
+  flex: 1;
+  min-height: 250px;
+}
+
+/* Subscription summary below radial bar chart */
+.subscription-summary {
+  margin-top: 1.6rem;
+  text-align: center;
+  user-select: text;
+  color: #475569;
+}
+
+.subscription-summary .value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #2563eb;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.05em;
+}
+
+.subscription-summary .label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+
+/* Tooltip customization for recharts tooltips */
+.recharts-tooltip-wrapper {
+  background: rgba(37, 99, 235, 0.85) !important;
+  color: #fff !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  pointer-events: none;
+  box-shadow: 0 4px 18px rgba(37, 78, 168, 0.3);
+  padding: 0.6rem 1.2rem !important;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 480px) {
+  .stats-reports {
+    padding: 2rem 1.2rem 3rem;
+    border-radius: 18px;
+  }
+
+  .stats-reports h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .chart-card {
+    padding: 1.4rem 1.6rem 2rem;
+    border-radius: 16px;
+  }
+
+  .chart-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .subscription-summary .value {
+    font-size: 1.6rem;
+  }
+}
