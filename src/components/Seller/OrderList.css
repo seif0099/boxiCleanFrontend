@@ -1,0 +1,130 @@
+/* OrderList Styles - Based on StockManager */
+
+.order-list-container {
+  background: #f9fbff;
+  border-radius: 22px;
+  box-shadow: 0 18px 36px rgba(31, 41, 55, 0.09), inset 0 0 18px #fff;
+  padding: 2rem 2rem 2.5rem;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+}
+
+.order-list-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(37, 99, 235, 0.13);
+  user-select: text;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 14px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(56, 58, 100, 0.08);
+  overflow: hidden;
+  font-size: 1rem;
+  color: #334155;
+  user-select: text;
+}
+
+.order-table th,
+.order-table td {
+  padding: 0.9rem 1.1rem;
+  text-align: left;
+}
+
+.order-table th {
+  background: #f1f5fb;
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid #e0e7ef;
+}
+
+.order-table tr {
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+
+.order-table tr:hover {
+  background: #f3f7fd;
+}
+
+.order-table td {
+  background: #fff;
+  border-bottom: 1px solid #f1f5fb;
+}
+
+.order-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.order-pagination button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.order-pagination .active-page {
+  background: #2563eb;
+  color: white;
+}
+
+.order-pagination .inactive-page {
+  background: #e5e7eb;
+  color: #334155;
+}
+
+.order-pagination .inactive-page:hover {
+  background: #cbd5e1;
+}
+
+.order-pagination .disabled-page {
+  background: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .order-list-container {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .order-list-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .order-pagination {
+    gap: 0.4rem;
+  }
+
+  .order-pagination button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9rem;
+  }
+}

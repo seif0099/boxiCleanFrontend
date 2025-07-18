@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./OrderList.css";
 
 const ROWS_PER_PAGE = 6;
 
@@ -27,7 +28,6 @@ const OrderList = () => {
     fetchOrders();
   }, []);
 
-  // Pagination logic
   const totalPages = Math.ceil(orders.length / ROWS_PER_PAGE);
   const indexOfLastRow = currentPage * ROWS_PER_PAGE;
   const indexOfFirstRow = indexOfLastRow - ROWS_PER_PAGE;
@@ -38,8 +38,8 @@ const OrderList = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Commandes Reçues</h2>
+    <div className="order-list-container">
+      <h2 className="order-list-title">Commandes Reçues</h2>
 
       {loading ? (
         <p>Chargement...</p>
@@ -47,22 +47,22 @@ const OrderList = () => {
         <p>Aucune commande pour l’instant.</p>
       ) : (
         <>
-          <table className="w-full text-left border-collapse">
+          <table className="order-table">
             <thead>
-              <tr className="bg-blue-100">
-                <th className="p-2">Commande</th>
-                <th className="p-2">Client</th>
-                <th className="p-2">Total (€)</th>
-                <th className="p-2">Statut</th>
-                <th className="p-2">Date</th>
+              <tr>
+                <th>Commande</th>
+                <th>Client</th>
+                <th>Total (TND)</th>
+                <th>Statut</th>
+                <th>Date</th>
               </tr>
             </thead>
             <tbody>
               {currentRows.map((order) => (
-                <tr key={order.id} className="border-t">
-                  <td className="p-2 font-medium">#{order.id}</td>
-                  <td className="p-2">{order.client?.fullName}</td>
-                  <td className="p-2">
+                <tr key={order.id}>
+                  <td>#{order.id}</td>
+                  <td>{order.client?.fullName}</td>
+                  <td>
                     {order.total
                       ? order.total.toFixed(2)
                       : order.items
@@ -73,41 +73,40 @@ const OrderList = () => {
                           )
                           .toFixed(2)}
                   </td>
-                  <td className="p-2">{order.statut}</td>
-                  <td className="p-2">
-                    {new Date(order.createdAt).toLocaleDateString()}
-                  </td>
+                  <td>{order.statut}</td>
+                  <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+
           {/* Pagination Controls */}
-          <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
+          <div className="order-pagination">
             <button
-              className="px-3 py-1 rounded bg-blue-500 text-white mr-2"
+              className={`${
+                currentPage === 1 ? "disabled-page" : "inactive-page"
+              }`}
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
               Précédent
             </button>
+
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i + 1}
-                className={`px-3 py-1 rounded mx-1 ${
-                  currentPage === i + 1
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
+                className={
+                  currentPage === i + 1 ? "active-page" : "inactive-page"
+                }
                 onClick={() => handlePageChange(i + 1)}
               >
                 {i + 1}
               </button>
             ))}
+
             <button
-              className={`px-3 py-1 rounded mx-1 border shadow ${
-                currentPage === i + 1
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-200 text-gray-700"
+              className={`${
+                currentPage === totalPages ? "disabled-page" : "inactive-page"
               }`}
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}

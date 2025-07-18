@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "./ClientDashboard.css";
+import Marketplace from "./marketplace/MarketPlace";
 
 const ClientDashboard = () => {
   const navigate = useNavigate();
@@ -285,6 +286,10 @@ const ClientDashboard = () => {
       <button className="go-services-btn" onClick={() => navigate("/services")}>
         🔍 Explorer les services
       </button>
+      <section className="marketplace-wrapper">
+        <h2>🛒 Produits disponibles</h2>
+        <Marketplace />
+      </section>
 
       {/* Review Section - moved here */}
       <section className="review-section">

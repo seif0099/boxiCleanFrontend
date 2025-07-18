@@ -17,6 +17,8 @@ import Abonnement from "./components/prestataire/abonnement/Abonnement";
 import SuccessPage from "./components/prestataire/SuccessPage";
 import CancelPage from "./components/prestataire/CancelPage";
 import SellerDashboard from "./components/Seller/SellerDashboard";
+import SuccessCheckout from "./components/Client/marketplace/SuccessCheckout";
+import CancelCheckout from "./components/Client/marketplace/CancelCheckout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +34,9 @@ function App() {
 
         <Route path="/abonnement-success" element={<SuccessPage />} />
         <Route path="/abonnement-cancel" element={<CancelPage />} />
+
+        <Route path="/checkout-success" element={<SuccessCheckout />} />
+        <Route path="/checkout-cancel" element={<CancelCheckout />} />
 
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<AuthPage />} />
