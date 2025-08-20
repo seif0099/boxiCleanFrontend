@@ -1,172 +1,305 @@
-/* Redesigned SearchService.css */
+/* ===========================
+   BoxiClean — Search Service (Modern)
+   Drop-in replacement (same class names)
+   =========================== */
 
-.search-service-container {
-  padding: 30px 25px;
-  max-width: 1140px;
-  margin: 40px auto;
-  background: #f9fafb;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(100, 115, 140, 0.1);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50;
+/* Design tokens */
+:root{
+  --bg:#f6f8fb;
+  --surface:#ffffff;
+  --ink:#0f172a;
+  --muted:#475569;
+  --soft:#64748b;
+  --line:#e2e8f0;
+
+  --primary:#2563eb;
+  --primary-700:#1d4ed8;
+  --accent:#22c55e;
+
+  --radius-md:14px;
+  --radius-lg:18px;
+
+  --shadow-sm:0 6px 18px rgba(2,6,23,.06);
+  --shadow-md:0 12px 28px rgba(2,6,23,.10);
+  --ring:0 0 0 3px rgba(37,99,235,.18);
+
+  --font:'Inter','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
 }
 
-.search-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #34495e;
-  margin-bottom: 30px;
+/* Motion reduction */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+
+/* Shell */
+.search-service-container{
+  padding: 28px 22px;
+  max-width: 1120px;
+  margin: 36px auto;
+  background:
+    radial-gradient(60% 60% at 100% 0, rgba(37,99,235,.06), transparent 60%),
+    var(--bg);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* Title */
+.search-title{
+  font-size: clamp(1.4rem,1.1rem + 1.2vw,1.9rem);
+  font-weight: 900;
+  color: var(--primary-700);
   text-align: center;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  user-select: none;
+  letter-spacing:.02em;
+  margin: 0 0 22px;
+  text-transform: none;
 }
 
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 35px;
+/* Filter bar */
+.filter-bar{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  gap: 12px;
+  margin: 0 auto 26px;
+  max-width: 980px;
 }
 
 .search-input,
 .price-input,
-.location-input {
-  flex: 1 1 280px;
-  min-width: 280px;
-  padding: 14px 20px;
-  border-radius: 12px;
-  border: 2px solid #d1dce6;
+.location-input{
+  grid-column: span 4;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
   font-size: 15px;
-  color: #34495e;
-  background-color: #ffffff;
-  box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.05);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  user-select: text;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
 }
 
 .search-input::placeholder,
 .price-input::placeholder,
-.location-input::placeholder {
-  color: #a3b1c2;
-  font-style: italic;
+.location-input::placeholder{
+  color: #9aa7b6;
 }
 
 .search-input:focus,
 .price-input:focus,
-.location-input:focus {
-  border-color: #2980b9;
-  box-shadow: 0 0 12px rgba(41, 128, 185, 0.45);
+.location-input:focus{
   outline: none;
-  background-color: #f0f8ff;
-  color: #1c2e4a;
+  border-color: #93c5fd;
+  box-shadow: var(--ring);
+  background:#f8fbff;
 }
 
-.services-grid {
+/* Grid of cards */
+.services-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 16px;
 }
 
-.service-card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 24px 28px;
-  box-shadow: 0 6px 18px rgba(52, 73, 94, 0.1);
-  cursor: pointer;
-  transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  user-select: none;
+/* Card */
+.service-card{
+  position: relative;
+  background: linear-gradient(180deg,#ffffff 0%,#fafbff 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
   min-height: 180px;
+  cursor: pointer;
+  transition: transform .14s ease, box-shadow .2s ease, border-color .18s ease;
 }
 
-.service-card:hover,
-.service-card:focus {
-  box-shadow: 0 16px 40px rgba(41, 128, 185, 0.25);
-  transform: translateY(-6px);
+/* Accent bar */
+.service-card::after{
+  content:"";
+  position:absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  border-radius: 18px 18px 0 0;
+  background: linear-gradient(90deg,var(--primary),#60a5fa,var(--accent));
+  opacity:.85;
+}
+
+/* Hover/Focus */
+.service-card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(37,99,235,.22);
+}
+.service-card:focus-visible{
   outline: none;
+  box-shadow: var(--ring), var(--shadow-md);
 }
 
-.service-name {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 9px;
-  letter-spacing: 0.03em;
+/* Card content */
+.service-name{
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing:.01em;
+  margin: 6px 0 0;
 }
 
-.service-description {
-  flex-grow: 1;
-  font-size: 15px;
-  color: #64707d;
-  line-height: 1.45;
-  margin-bottom: 18px;
-  user-select: text;
+.service-description{
+  flex: 1;
+  font-size: 14.5px;
+  color: var(--soft);
+  line-height: 1.55;
+  margin: 2px 0 6px;
 }
 
-.service-price {
-  font-weight: 700;
-  color: #27ae60;
-  font-size: 17px;
-  margin-bottom: 10px;
-  user-select: text;
+.service-price{
+  font-weight: 900;
+  color: var(--accent);
+  font-size: 16.5px;
 }
 
-.service-location {
-  font-size: 14px;
-  color: #7f8c8d;
-  font-style: italic;
-  user-select: text;
-  align-self: flex-start;
+.service-location{
+  font-size: 13.5px;
+  color: var(--muted);
+  opacity:.9;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.service-location::before{
+  content:"📍";
+  font-size: 13px;
+  opacity:.9;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .search-service-container {
-    padding: 24px 18px;
-  }
-
-  .search-title {
-    font-size: 24px;
-    margin-bottom: 25px;
-  }
-
+/* Responsive */
+@media (max-width: 900px){
   .search-input,
   .price-input,
-  .location-input {
-    min-width: 100%;
-  }
-
-  .filter-bar {
-    flex-direction: column;
-    gap: 18px;
-  }
+  .location-input{ grid-column: span 6; }
+}
+@media (max-width: 560px){
+  .search-service-container{ padding: 20px 14px; border-radius: 16px; }
+  .filter-bar{ grid-template-columns: repeat(6,1fr); gap:10px; }
+  .search-input,
+  .price-input,
+  .location-input{ grid-column: span 6; height: 46px; }
+  .service-card{ padding: 16px 14px; border-radius:16px; }
 }
 
-@media (max-width: 450px) {
-  .service-card {
-    padding: 20px 22px;
-    min-height: auto;
-  }
+/* Optional dark mode (wrap with .dark on a parent) */
+.dark .search-service-container{
+  background:#0b1220;
+  border-color:#1e293b;
+}
+.dark .service-card{
+  background: linear-gradient(180deg,#0f172a 0%,#0b1220 100%);
+  border-color:#1e293b;
+}
+.dark .service-card::after{ opacity:.5; }
+.dark .service-description{ color:#94a3b8; }
+.dark .service-location{ color:#9fb0d4; }
+/* ==== Sticky filter bar ==== */
+.filter-bar {
+  position: sticky;
+  top: 10px;                 /* adjust if you have a fixed navbar */
+  z-index: 30;
+  background: rgba(255,255,255,0.86);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 10px;
+  backdrop-filter: saturate(140%) blur(6px);
+  box-shadow: 0 10px 24px rgba(2,6,23,.08);
+}
 
-  .service-name {
-    font-size: 18px;
-  }
+/* tighter on mobile */
+@media (max-width: 560px){
+  .filter-bar { top: 6px; padding: 8px; border-radius: 14px; }
+}
 
-  .service-price {
-    font-size: 16px;
-  }
+/* ==== Inputs show an “active” look when filled ==== */
+.search-input:not(:placeholder-shown),
+.price-input:not(:placeholder-shown),
+.location-input:not(:placeholder-shown) {
+  border-color: #93c5fd;
+  background: #f0f6ff;
+  box-shadow: var(--ring);
+}
 
-  .service-description {
-    font-size: 14px;
-    margin-bottom: 14px;
-  }
+/* ==== Little tick badge to signal an active filter (CSS-only chip) ==== */
+/* Note: inputs don't support ::before/::after reliably, so we use a background SVG badge */
+.search-input:not(:placeholder-shown),
+.price-input:not(:placeholder-shown),
+.location-input:not(:placeholder-shown){
+  background-image:
+    radial-gradient(#2563eb 55%, transparent 56%),
+    radial-gradient(#fff 42%, transparent 43%);
+  background-size: 20px 20px, 10px 10px;
+  background-position: right 10px center, right 10px center;
+  background-repeat: no-repeat;
+}
 
-  .service-location {
-    font-size: 13px;
-  }
+/* add some right padding so text doesn't collide with the badge */
+.search-input,
+.price-input,
+.location-input { padding-right: 40px; }
+
+/* Optional subtle label color while active */
+.search-input:not(:placeholder-shown)::placeholder,
+.price-input:not(:placeholder-shown)::placeholder,
+.location-input:not(:placeholder-shown)::placeholder {
+  color: #7aa0e8;
+}
+
+/* ===== Cards get a bit more lift under the sticky bar shadow ===== */
+.services-grid { margin-top: 10px; }
+/* ===== Active filter chips (JS-enhanced) ===== */
+.active-filters-row{
+  position: sticky;
+  top: calc(10px + 64px); /* sits right under the sticky bar; tweak 64px if your bar height differs */
+  z-index: 29;
+  display: none;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px auto 18px;
+  padding: 8px 10px;
+  max-width: 980px;
+  background: rgba(248,250,255,.75);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.filter-chip-title{
+  font-weight: 800;
+  color: var(--muted);
+  margin-right: 2px;
+  font-size: 13px;
+}
+
+.filter-chip{
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  border: 1px solid #c7dcff;
+  background: linear-gradient(180deg,#f3f8ff,#eaf2ff);
+  color: #1e3a8a;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.filter-chip:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(30,64,175,.12);
+  border-color: #93c5fd;
 }

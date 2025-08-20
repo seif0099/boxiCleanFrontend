@@ -106,7 +106,18 @@ const ServiceDetails = () => {
 
   if (!service) return <p className="loading-message">Chargement...</p>;
 
-  return (
+return (
+  <div className="service-details-page">
+    {/* Left: Service image */}
+    <div className="service-image-container">
+      <img
+        src="/bx.png"
+        alt={service.nom_service}
+        className="service-image"
+      />
+    </div>
+
+    {/* Right: Form */}
     <div className="service-details-container">
       <h2 className="service-title">{service.nom_service}</h2>
       <p className="service-description">{service.description}</p>
@@ -121,7 +132,7 @@ const ServiceDetails = () => {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          min={new Date().toISOString().split("T")[0]} // Prevent past dates
+          min={new Date().toISOString().split("T")[0]}
         />
       </div>
 
@@ -154,7 +165,9 @@ const ServiceDetails = () => {
         {loading ? "⏳ Traitement..." : "✅ Réserver ce service"}
       </button>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default ServiceDetails;

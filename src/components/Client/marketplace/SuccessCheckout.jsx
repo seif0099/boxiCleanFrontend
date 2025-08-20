@@ -29,10 +29,15 @@ const SuccessCheckout = () => {
 
       const verifiedSession = localStorage.getItem(`verified_${sessionId}`);
       if (verifiedSession) {
-        const cachedData = JSON.parse(verifiedSession);
-        setCommandes(cachedData.commandes);
-        setLoading(false);
-        return;
+        try {
+          const cachedData = JSON.parse(verifiedSession);
+          setCommandes(cachedData.commandes);
+          setLoading(false);
+          return;
+        } catch (err) {
+          console.error("Error parsing cached data:", err);
+          localStorage.removeItem(`verified_${sessionId}`);
+        }
       }
 
       try {
@@ -53,6 +58,17 @@ const SuccessCheckout = () => {
         if (response.ok && data.success) {
           setCommandes(data.commandes);
           localStorage.setItem(`verified_${sessionId}`, JSON.stringify(data));
+
+          // Store the latest commande ID for tracking
+          if (data.commandes && data.commandes.length > 0) {
+            const latestCommande = data.commandes[0];
+            console.log("Storing commande ID:", latestCommande.id);
+            localStorage.setItem(
+              "lastCommandeId",
+              latestCommande.id.toString()
+            );
+          }
+
           isVerified = true;
         } else {
           setError(
@@ -73,6 +89,25 @@ const SuccessCheckout = () => {
       isVerified = false;
     };
   }, [sessionId]);
+
+  const goToMarketplace = () => {
+    navigate("/client-dashboard", { state: { showTracking: true } });
+  };
+  useEffect(() => {
+    if (commandes && commandes.length > 0) {
+      const factureUrl = `http://localhost:5000/commande/${commandes[0].id}/facture`;
+      window.open(factureUrl, "_blank"); // trigger PDF open in new tab
+    }
+  }, [commandes]);
+
+
+  const goToTracking = () => {
+    if (commandes && commandes.length > 0) {
+      navigate("/delivery-tracking", {
+        state: { commandeId: commandes[0].id },
+      });
+    }
+  };
 
   if (loading) {
     return (
@@ -133,12 +168,28 @@ const SuccessCheckout = () => {
           </div>
         )}
 
-        <button
-          onClick={() => navigate("/client-dashboard")}
-          className="reservation-success-btn"
+        <div
+          style={{
+            marginTop: "2rem",
+            display: "flex",
+            gap: "1rem",
+            flexWrap: "wrap",
+          }}
         >
-          Retour au tableau de bord
-        </button>
+          <button onClick={goToMarketplace} className="reservation-success-btn">
+            Retour au tableau de bord
+          </button>
+
+          {commandes && commandes.length > 0 && (
+            <button
+              onClick={goToTracking}
+              className="reservation-success-btn"
+              style={{ backgroundColor: "#2196F3" }}
+            >
+              🚚 Suivre ma livraison
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

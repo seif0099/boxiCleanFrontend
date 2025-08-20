@@ -1,0 +1,197 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 540px;
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 28px;
+  box-shadow:
+    0 20px 48px rgba(0, 122, 255, 0.25),
+    inset 0 0 40px rgba(255, 255, 255, 0.9);
+  background: linear-gradient(145deg, #f9fbfe, #dbefff);
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+  user-select: none;
+}
+
+/* Header */
+.chat-title {
+  background: #2563eb;
+  color: #f0f9ff;
+  padding: 1.4rem 1.8rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: center;
+  user-select: text;
+  text-shadow: 0 0 8px rgba(37, 99, 235, 0.9);
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid #1e40af;
+}
+
+/* Message container */
+.chat-messages {
+  flex: 1;
+  padding: 20px 24px;
+  overflow-y: auto;
+  background: #ebf3ff;
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb #e0e7ff;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Scrollbar for WebKit */
+.chat-messages::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #e0e7ff;
+  border-radius: 24px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 24px;
+  border: 2px solid #e0e7ff;
+}
+
+.no-messages {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+  font-weight: 600;
+  user-select: text;
+}
+
+/* Common message style */
+.chat-message {
+  max-width: 75%;
+  word-wrap: break-word;
+  padding: 14px 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  user-select: text;
+}
+
+/* Received message styling */
+.chat-message.received {
+  align-self: flex-start;
+  background: #f2f5fb;
+  color: #111827;
+  border-radius: 22px 22px 22px 6px;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid #bbd2ff;
+  font-weight: 600;
+}
+
+/* Sent message styling */
+.chat-message.sent {
+  align-self: flex-end;
+  background: #2563eb;
+  color: #f9fafb;
+  border-radius: 22px 22px 6px 22px;
+  box-shadow:
+    0 6px 22px rgba(37, 99, 235, 0.4);
+  font-weight: 700;
+  border: 1.5px solid #1e40af;
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 11px;
+  opacity: 0.75;
+  font-style: normal;
+  font-weight: 500;
+  user-select: none;
+  padding-left: 2px;
+}
+
+.chat-message.sent .timestamp {
+  color: rgba(255, 255, 255, 0.85);
+  text-align: right;
+}
+
+.chat-message.received .timestamp {
+  color: rgba(31, 41, 55, 0.6);
+  text-align: left;
+}
+
+/* Input section */
+.chat-input-section {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  background: #ffffff;
+  border-top: 2.5px solid #d0dbff;
+  gap: 14px;
+  user-select: none;
+}
+
+/* Input field style */
+.chat-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2.8px solid #cad9ff;
+  border-radius: 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #1e293b;
+  background-color: #f8faff;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  outline-offset: 4px;
+}
+
+.chat-input::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.chat-input:focus {
+  border-color: #2563eb;
+  background-color: #e6f0ff;
+  box-shadow: 0 0 20px 4px rgba(37, 99, 235, 0.45);
+  outline: none;
+}
+
+/* Send button */
+.send-button {
+  padding: 14px 36px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border: none;
+  border-radius: 28px;
+  color: #fafafa;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 36px rgba(37, 99, 235, 0.65);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.18s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.send-button:hover:not(:disabled),
+.send-button:focus:not(:disabled) {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+  box-shadow: 0 16px 48px rgba(30, 64, 175, 0.75);
+  outline: none;
+  transform: translateY(-2.5px);
+}
+
+.send-button:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 8px 30px rgba(30, 64, 175, 0.5);
+}
+
+.send-button:disabled {
+  background: #a8b1d9;
+  box-shadow: none;
+  cursor: not-allowed;
+}

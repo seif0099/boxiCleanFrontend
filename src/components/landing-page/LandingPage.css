@@ -1,152 +1,282 @@
-.landing-container {
+/* ================================
+   BoxiClean – Landing (SCOPED)
+   Nothing here touches the rest of the app
+   ================================ */
+
+/* 0) Scope box-sizing so it doesn't leak */
+.landing-page,
+.landing-page * { box-sizing: border-box; }
+
+/* 1) Design tokens (scoped to landing only) */
+.landing-page{
+  /* Brand */
+  --brand-50:#e6f7ff;
+  --brand-100:#d9f3ff;
+  --brand-200:#bfeaff;
+  --brand-300:#99deff;
+  --brand-400:#66cdff;
+  --brand-500:#00aaff; /* primary */
+  --brand-600:#008ecc; /* hover */
+  --brand-700:#0073a6;
+
+  /* Neutral */
+  --bg:#f7fbff;
+  --surface:#ffffff;
+  --ink:#1e2a3a;
+  --muted:#6b7a90;
+  --muted-2:#8a98ac;
+  --border:#e7eef6;
+
+  /* Feedback */
+  --shadow-rgb: 0, 170, 255;
+
+  /* Shape & type scale */
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:18px;
+  --radius-xl:22px;
+
+  --fs-hero: clamp(2rem, 3.2vw, 2.75rem);
+  --fs-h2: clamp(1.5rem, 2.2vw, 2rem);
+  --fs-body: 1rem;
+  --fs-small: .9rem;
+
+  /* Spacing */
+  --sp-1: 6px;
+  --sp-2: 10px;
+  --sp-3: 14px;
+  --sp-4: 20px;
+  --sp-5: 28px;
+  --sp-6: 36px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* Elevation */
+  --elev-1: 0 8px 24px rgba(var(--shadow-rgb), .12);
+  --elev-2: 0 12px 32px rgba(var(--shadow-rgb), .16);
+
+  /* Base (scoped) */
+  font-family:'Poppins','Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+  font-size:var(--fs-body);
+  color:var(--ink);
+  background: linear-gradient(170deg, var(--brand-50) 0%, #fff 70%);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column; /* 🟢 clé pour un affichage en colonne */
-  align-items: center;
-  background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  padding: 0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-
-.landing-hero {
-  text-align: center;
-  max-width: 700px;
-  background: #ffffff;
-  padding: 40px 30px;
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(0, 170, 255, 0.15);
+/* 2) Base element helpers (scoped) */
+.landing-page img{max-width:100%;display:block}
+.landing-page a{color:inherit;text-decoration:none}
+.landing-page :focus-visible{
+  outline:3px solid var(--brand-400);
+  outline-offset:2px;
+  border-radius:6px;
 }
 
-.landing-hero h1 {
-  font-size: 2.5rem;
-  color: #1e2a3a;
-  margin-bottom: 15px;
+/* Optional: dark mode JUST for landing */
+@media (prefers-color-scheme: dark){
+  .landing-page{
+    --bg:#0f1723;
+    --surface:#121c2b;
+    --ink:#edf2f7;
+    --muted:#a7b3c7;
+    --border:#243247;
+    --shadow-rgb: 0, 142, 204;
+    background:linear-gradient(170deg, #0f1723 0%, #0b111b 70%);
+  }
 }
 
-.landing-hero h1 span {
-  color: #00aaff;
+/* 3) Utility container (scoped) */
+.landing-page .container{
+  width:100%;
+  max-width:1200px;
+  padding-inline: var(--sp-4);
+  margin-inline:auto;
 }
 
-.landing-hero p {
-  color: #555;
+/* 4) Landing wrapper */
+.landing-page .landing-container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: var(--sp-7) var(--sp-4) var(--sp-8);
+  gap: var(--sp-7);
+}
+
+/* 5) Hero */
+.landing-page .landing-hero{
+  width:100%;
+  max-width:900px;
+  background:var(--surface);
+  padding: clamp(28px, 3.5vw, 48px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-2);
+  text-align:center;
+}
+.landing-page .landing-hero h1{
+  font-size: var(--fs-hero);
+  line-height:1.15;
+  color:var(--ink);
+  margin: 0 0 var(--sp-3);
+  letter-spacing: -0.5px;
+}
+.landing-page .landing-hero h1 span{ color: var(--brand-500); }
+.landing-page .landing-hero p{
+  color:var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  margin: 0 0 var(--sp-5);
+}
+
+/* 6) Buttons */
+.landing-page .landing-buttons{
+  display:flex;
+  justify-content:center;
+  gap: var(--sp-4);
+  flex-wrap:wrap;
+}
+.landing-page .btn-primary,
+.landing-page .btn-secondary{
+  --p: 12px; --px: 28px;
+  padding: var(--p) var(--px);
+  border:none;
+  border-radius: var(--radius-sm);
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .28s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
+  will-change: transform, box-shadow;
+}
+.landing-page .btn-primary{
+  background-color: var(--brand-500);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(var(--shadow-rgb), .18);
+}
+.landing-page .btn-primary:hover{
+  background-color: var(--brand-600);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(var(--shadow-rgb), .22);
+}
+.landing-page .btn-primary:active{ transform: translateY(0) }
+.landing-page .btn-secondary{
+  background: transparent;
+  border:2px solid var(--brand-500);
+  color: var(--brand-600);
+}
+.landing-page .btn-secondary:hover{
+  background: rgba(var(--shadow-rgb), .06);
+}
+.landing-page .cta-final .btn-primary.large{
+  padding:14px 32px;
+  font-size:18px;
+}
+
+/* 7) Sections (SCOPED so admin <section> is untouched) */
+.landing-page section,
+.landing-page .landing-hero{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+}
+.landing-page .features,
+.landing-page .steps,
+.landing-page .cta-final{
+  padding: var(--sp-7) var(--sp-4);
+  text-align:center;
+  background: var(--bg);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.landing-page .features h2,
+.landing-page .steps h2,
+.landing-page .cta-final h2{
+  font-size: var(--fs-h2);
+  color:var(--ink);
+  margin:0 0 var(--sp-5);
+  letter-spacing: -.3px;
+}
+
+/* 8) Grids & Cards */
+.landing-page .feature-grid,
+.landing-page .step-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+@media (max-width: 980px){
+  .landing-page .feature-grid,
+  .landing-page .step-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .landing-page .feature-grid,
+  .landing-page .step-grid{ grid-template-columns: 1fr; }
+}
+
+.landing-page .feature-item,
+.landing-page .step-item{
+  background:var(--surface);
+  padding: var(--sp-5);
+  border-radius: var(--radius-md);
+  border:1px solid var(--border);
+  box-shadow: var(--elev-1);
+  text-align:center;
+  transition: transform .25s ease, box-shadow .3s ease;
+}
+.landing-page .feature-item:hover,
+.landing-page .step-item:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(var(--shadow-rgb), .18);
+}
+.landing-page .feature-item h3{
+  color: var(--brand-600);
+  margin: 0 0 var(--sp-2);
   font-size: 1.1rem;
-  margin-bottom: 30px;
 }
 
-.landing-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background-color: #00aaff;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #008ecc;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  border: 2px solid #00aaff;
-  color: #00aaff;
-}
-
-.btn-secondary:hover {
-  background-color: #f0fbff;
-}
-/* Ajoute à ton fichier existant */
-
-.features,
-.steps,
-.cta-final {
-  padding: 60px 20px;
-  text-align: center;
-  background-color: #f7fbff;
-}
-
-.features h2,
-.steps h2,
-.cta-final h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #1e2a3a;
-}
-
-.feature-grid,
-.step-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.feature-item,
-.step-item {
-  background: white;
-  padding: 20px;
-  max-width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 170, 255, 0.1);
-  text-align: center;
-  transition: transform 0.3s;
-}
-
-.feature-item:hover,
-.step-item:hover {
-  transform: translateY(-5px);
-}
-
-.feature-item h3 {
-  color: #00aaff;
-  margin-bottom: 10px;
-}
-
-.step-item span {
-  display: inline-block;
-  background-color: #00aaff;
-  color: white;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  font-weight: bold;
-  margin-bottom: 10px;
+/* Number pill on steps */
+.landing-page .step-item span{
+  display:inline-grid;
+  place-items:center;
+  background: var(--brand-500);
+  color:#fff;
+  width:40px;height:40px;
+  border-radius:50%;
+  font-weight:700;
+  margin-bottom: var(--sp-2);
   font-size: 18px;
+  box-shadow: 0 8px 16px rgba(var(--shadow-rgb), .18);
 }
 
-.cta-final .btn-primary.large {
-  padding: 14px 32px;
-  font-size: 18px;
-  margin-top: 20px;
+/* 9) CTA section */
+.landing-page .cta-final{
+  background: linear-gradient(135deg, var(--brand-50), #fff 70%);
+  border:1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-1);
+}
+.landing-page .cta-final p{
+  color:var(--muted);
+  max-width:720px;
+  margin: 0 auto var(--sp-4);
 }
 
-.landing-footer {
-  padding: 20px;
-  background-color: #eef5f9;
-  text-align: center;
-  font-size: 14px;
-  color: #777;
+/* 10) Footer */
+.landing-page .landing-footer{
+  padding: var(--sp-4);
+  background: #eef5f9;
+  text-align:center;
+  font-size: var(--fs-small);
+  color: #697a8e;
+  border-top:1px solid var(--border);
 }
-section,
-.landing-hero {
-  width: 100%;
-  max-width: 1200px;
-  padding: 60px 20px;
-  margin: 0 auto;
+
+/* 11) Motion preferences */
+@media (prefers-reduced-motion: reduce){
+  .landing-page *{
+    animation-duration:.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
 }

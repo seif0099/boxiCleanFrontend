@@ -19,6 +19,9 @@ import CancelPage from "./components/prestataire/CancelPage";
 import SellerDashboard from "./components/Seller/SellerDashboard";
 import SuccessCheckout from "./components/Client/marketplace/SuccessCheckout";
 import CancelCheckout from "./components/Client/marketplace/CancelCheckout";
+import DeliveryTracking from "./components/Client/marketplace/DeliveryTracking";
+import LivreurDashboard from "./components/livreur/LivreurDashboard";
+import LivreurProfile from "./components/livreur/LivreurProfile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,12 +45,15 @@ function App() {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/client-dashboard" element={<ClientDashboard />} />
         <Route path="/abonnement" element={<Abonnement />} />
+        <Route path="/delivery-tracking" element={<DeliveryTracking />} />
 
         <Route
           path="/prestataire-dashboard"
           element={<PrestataireDashboard />}
         />
         <Route path="/vendeur-dashboard" element={<SellerDashboard />} />
+        <Route path="/livreur-dashboard" element={<LivreurDashboard />} />
+        <Route path="/livreur-profile" element={<LivreurProfile />} />
 
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>{" "}

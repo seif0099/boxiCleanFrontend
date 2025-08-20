@@ -4,6 +4,7 @@ import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
+    <div className="landing-page">
     <div className="landing-container">
       <header className="landing-hero">
         <h1>
@@ -72,6 +73,7 @@ const LandingPage = () => {
       <footer className="landing-footer">
         <p>© 2025 BoxiClean. Tous droits réservés.</p>
       </footer>
+    </div>
     </div>
   );
 };

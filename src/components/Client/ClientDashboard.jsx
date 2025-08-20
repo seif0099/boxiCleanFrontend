@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "./ClientDashboard.css";
 import Marketplace from "./marketplace/MarketPlace";
+import ChatboxClient from "../Chat/ChatboxClient";
+import ChatContainer from "../Chat/ChatContainer";
 
 const ClientDashboard = () => {
   const navigate = useNavigate();
@@ -14,7 +16,8 @@ const ClientDashboard = () => {
     useState(null);
   const token = localStorage.getItem("token");
   const [showModal, setShowModal] = useState(false);
-
+  const [livraisons, setLivraisons] = useState([]);
+  const [showChat, setShowChat] = useState(true);
 
   let client_id = "";
 
@@ -22,20 +25,85 @@ const ClientDashboard = () => {
     const decoded = jwtDecode(token);
     client_id = decoded.id;
   }
+  const fetchLivraisons = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      const decoded = jwtDecode(token);
+      const clientId = decoded.id;
+
+      const res = await fetch(
+        `http://localhost:5000/livraison/client/${clientId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setLivraisons(data);
+      }
+    } catch (err) {
+      console.error("Erreur récupération livraisons:", err);
+    }
+  };
 
   useEffect(() => {
     if (!token) {
       navigate("/auth");
       return;
     }
+    fetchLivraisons(); // 👈 Add this
 
     fetchReservations();
   }, [token, navigate]);
+  const latestLivraison = livraisons.find(
+    (liv) => liv.livreur_id && liv.livreur_id !== "null"
+  );
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:5000/logout", null, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (err) {
+      console.error("Erreur de déconnexion :", err);
+      // Even if logout API fails, we still clear the token
+      localStorage.removeItem("token");
+      navigate("/");
+    }
   };
+
+  const getLivreurId = (commande) => {
+    // Check if commande has livraison with livreur
+    if (commande.livraison && commande.livraison.livreur_id) {
+      return commande.livraison.livreur_id;
+    }
+    return null;
+  };
+
+  // Helper function to get livreur name
+  const getLivreurName = (commande) => {
+    if (commande.livraison && commande.livraison.livreur) {
+      return commande.livraison.livreur.fullName || "Livreur";
+    }
+    return "Livreur non assigné";
+  };
+
+  // Helper function to check if chat is available
+  const isChatAvailable = (commande) => {
+    return commande.livraison && commande.livraison.livreur_id;
+  };
+
+  const clientId = JSON.parse(localStorage.getItem("user"))?.id;
 
   const fetchReservations = async () => {
     if (!token) return;
@@ -290,6 +358,19 @@ const ClientDashboard = () => {
         <h2>🛒 Produits disponibles</h2>
         <Marketplace />
       </section>
+      {latestLivraison?.livreur_id && showChat && (
+        <div style={{ position: "relative" }}>
+          <button className="close-chat" onClick={() => setShowChat(false)}>
+            ×
+          </button>
+          <ChatContainer otherUserId={latestLivraison.livreur_id} />
+        </div>
+      )}
+      {!showChat && latestLivraison?.livreur_id && (
+        <button onClick={() => setShowChat(true)} className="reopen-chat-btn">
+          💬 Ouvrir la discussion avec le livreur
+        </button>
+      )}
 
       {/* Review Section - moved here */}
       <section className="review-section">

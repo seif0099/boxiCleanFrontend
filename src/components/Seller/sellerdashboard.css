@@ -78,3 +78,26 @@
     border-radius: 16px;
   }
 }
+/* Logout Button */
+.logout-btn {
+  background: #ef4444;           /* Red */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.10);
+  transition: background 0.18s, box-shadow 0.18s, color 0.18s;
+  margin: 0.5rem 0;
+  letter-spacing: 0.02em;
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+  background: #b91c1c;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.15);
+  outline: none;
+}
